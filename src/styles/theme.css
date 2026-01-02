@@ -1,0 +1,27 @@
+:root {
+  --bg: #f7f8fc;
+  --bg-muted: #eceff8;
+  --card-bg: #ffffff;
+  --border: #d9dee9;
+  --text-primary: #0b192f;
+  --text-secondary: #4c5670;
+  --accent: #6c63ff;
+  --accent-soft: #ede9ff;
+  --danger: #ff6b6b;
+  --font-primary: 'Poppins', sans-serif;
+  --radius: 12px;
+  --shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+}
+
+.dark {
+  --bg: #0a111f;
+  --bg-muted: #121a2d;
+  --card-bg: #162034;
+  --border: #263044;
+  --text-primary: #f5f7fb;
+  --text-secondary: #b8c0d6;
+  --accent: #9c92ff;
+  --accent-soft: #2a2454;
+  --danger: #ff8787;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
