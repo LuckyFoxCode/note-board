@@ -1,8 +1,25 @@
-.sidebar {
-  border-right: 1px solid var(--border);
+.nb-sidebar {
+  border: 2px solid var(--border);
+  border-left: transparent;
+  background-color: var(--bg);
+  border-radius: 10px;
+  width: 48px;
+  transition: width 0.3s;
 }
 
-.board {
+.nb-sidebar,
+.nb-board {
+  padding: 1rem 0.5rem;
+}
+
+.nb-board {
   background-color: var(--bg-muted);
   padding-left: 1rem;
+}
+
+/* 540px */
+@media (min-width: 540px) {
+  .nb-sidebar {
+    width: 250px;
+  }
 }
