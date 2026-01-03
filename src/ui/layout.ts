@@ -16,5 +16,15 @@ export function createLayout(): {
   board.dataset.mount = 'board';
   board.ariaLabel = 'Board';
 
+  const themeBtn = document.createElement('button');
+  themeBtn.classList.add('nb-theme-btn');
+  themeBtn.type = 'button';
+  themeBtn.textContent = 'Toggle theme';
+
+  themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+  });
+  board.append(themeBtn);
+
   return { sidebar, board };
 }

@@ -13,11 +13,23 @@
 }
 
 .nb-board {
+  display: flex;
+  flex-direction: column;
   background-color: var(--bg-muted);
   padding-left: 1rem;
 }
 
-/* 540px */
+.nb-theme-btn {
+  background-color: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+/* MEDIA */
+/* >540px */
 @media (min-width: 540px) {
   .nb-sidebar {
     width: 250px;
