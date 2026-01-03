@@ -5,8 +5,8 @@ Focus: State → Architecture → UX → TypeScript → Vue-ready thinking.
 
 ## Phase A — Foundation & Layout (DOM + Structure)
 
-- [ ] Step 1 — Project skeleton (Vite / TS / ESLint)
-- [ ] Step 2 — Base layout (sidebar + board)
+- [x] Step 1 — Project skeleton (Vite / TS / ESLint)
+- [x] Step 2 — Base layout (sidebar + board)
 - [ ] Step 3 — Note card UI (static mock data)
 - [ ] Step 4 — Category list UI (static)
 
