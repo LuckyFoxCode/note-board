@@ -1,0 +1,8 @@
+.sidebar {
+  border-right: 1px solid var(--border);
+}
+
+.board {
+  background-color: var(--bg-muted);
+  padding-left: 1rem;
+}
