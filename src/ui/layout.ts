@@ -1,3 +1,4 @@
+import { cards } from '@/consts';
 import { createdCard } from './card';
 
 export function createLayout(): {
@@ -11,30 +12,38 @@ export function createLayout(): {
   sidebar.dataset.mount = 'sidebar';
   sidebar.ariaLabel = 'Navigation';
 
+  const themeBtn = document.createElement('button');
+  themeBtn.classList.add('nb-theme-btn');
+  themeBtn.type = 'button';
+  themeBtn.textContent = '☀️';
+
+  themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    themeBtn.textContent =
+      document.body.classList.contains('dark') === true ? '🌙' : '☀️';
+  });
+
   const board = document.createElement('main');
   board.classList.add('nb-board');
-  board.textContent = 'Board';
   board.dataset.role = 'main';
   board.dataset.mount = 'board';
   board.ariaLabel = 'Board';
 
-  const themeBtn = document.createElement('button');
-  themeBtn.classList.add('nb-theme-btn');
-  themeBtn.type = 'button';
-  themeBtn.textContent = 'Toggle theme';
+  const headerBoard = document.createElement('header');
+  headerBoard.classList.add('nb-board__header');
 
-  themeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-  });
+  const titleBoard = document.createElement('h1');
+  titleBoard.textContent = 'Welcome to NoteBoard!';
+
+  headerBoard.append(titleBoard);
+  board.prepend(headerBoard);
 
   const wrapperCard = document.createElement('div');
   wrapperCard.classList.add('nb-board__wrapper-card');
 
-  for (let i = 0; i < 8; i++) {
-    wrapperCard.append(createdCard());
-  }
-
-  board.append(themeBtn, wrapperCard);
+  cards.forEach((note) => wrapperCard.append(createdCard(note)));
+  sidebar.append(themeBtn);
+  board.append(wrapperCard);
 
   return { sidebar, board };
 }

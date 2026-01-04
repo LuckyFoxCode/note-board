@@ -1,16 +1,19 @@
-export function createdCard() {
-  const tags = [
-    { id: 't-001', name: 'Work', color: '#ffd166' },
-    { id: 't-002', name: 'Home', color: '#38d39f' },
-    { id: 't-003', name: 'Family', color: '#56ccf2' },
-    { id: 't-004', name: 'Health', color: '#f291b0' },
-  ];
+import type { Note } from '@/types';
+
+export function createdCard(note: Note) {
+  const { id, createdAt, title: titleNote, excerpt, tags, color } = note;
+
+  const formattedDate = new Date(createdAt).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
 
   const card = document.createElement('article');
   card.classList.add('nb-note-card');
   card.tabIndex = 1;
   card.dataset.role = 'article';
-  card.dataset.noteId = 'n-001';
+  card.dataset.noteId = id;
   card.ariaLabel = 'Note card';
 
   const header = document.createElement('header');
@@ -18,22 +21,22 @@ export function createdCard() {
 
   const date = document.createElement('span');
   date.classList.add('nb-note-card__head-date');
-  date.textContent = '03.01.2026';
+  date.textContent = formattedDate;
 
   const point = document.createElement('div');
   point.classList.add('nb-note-card__head-pointer');
+  point.style.backgroundColor = color;
 
   const body = document.createElement('div');
   body.classList.add('nb-note-card__body');
 
   const title = document.createElement('h4');
   title.classList.add('nb-note-card__body-title');
-  title.textContent = 'Meeting notes';
+  title.textContent = titleNote;
 
   const description = document.createElement('p');
   description.classList.add('nb-note-card__body-description');
-  description.textContent =
-    '"Notes. Little fragments of thought, anchors in the flow of time. A reminder, an idea, a feeling captured. Essential for navigating the day."';
+  description.textContent = excerpt;
 
   const footer = document.createElement('footer');
   footer.classList.add('nb-note-card__meta');

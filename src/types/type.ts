@@ -2,10 +2,15 @@ export interface Note {
   id: string;
   title: string;
   excerpt: string;
-  tags: string[];
+  tags: Tag[];
   pinned: boolean;
-  colors?: string;
+  color: string;
   createdAt: string;
   updatedAt?: string;
   archived?: boolean;
+}
+
+interface Tag {
+  name: string;
+  color: string;
 }

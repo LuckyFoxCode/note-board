@@ -13,7 +13,7 @@
 }
 
 .nb-note-card:hover {
-  border-color: var(--info);
+  border-color: var(--color-primary);
 }
 
 .nb-note-card:focus {
@@ -56,9 +56,9 @@
 
 .nb-note-card__body-description {
   font-size: 15px;
-  color: var(--text-primary);
   word-wrap: break-word;
   overflow-wrap: break-word;
+  opacity: 0.6;
 }
 
 .nb-note-card__meta-tags {
@@ -74,6 +74,7 @@
   font-family: var(--font-secondary);
   font-size: 14px;
   border-radius: 0.5rem;
+  text-transform: capitalize;
   border: 1px solid var(--border);
   padding-inline: 0.5rem;
   outline: none;
