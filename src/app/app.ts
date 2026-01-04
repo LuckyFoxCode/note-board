@@ -1,4 +1,4 @@
-import { createLayout } from '@/ui';
+import { createdCard, createLayout } from '@/ui';
 
 export function initApp() {
   const root = document.querySelector('#app') as HTMLElement;
@@ -7,4 +7,9 @@ export function initApp() {
   const { sidebar, board } = createLayout();
 
   root.append(sidebar, board);
+
+  for (let i = 0; i < 6; i++) {
+    const card = createdCard();
+    board.append(card);
+  }
 }

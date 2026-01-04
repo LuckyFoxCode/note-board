@@ -1,3 +1,5 @@
+import { createdCard } from './card';
+
 export function createLayout(): {
   sidebar: HTMLElement;
   board: HTMLElement;
@@ -24,7 +26,14 @@ export function createLayout(): {
   themeBtn.addEventListener('click', () => {
     document.body.classList.toggle('dark');
   });
-  board.append(themeBtn);
+
+  const wrapperCard = document.createElement('div');
+  wrapperCard.classList.add('nb-board__wrapper-card');
+
+  const card = createdCard();
+
+  wrapperCard.append(card);
+  board.append(themeBtn, wrapperCard);
 
   return { sidebar, board };
 }

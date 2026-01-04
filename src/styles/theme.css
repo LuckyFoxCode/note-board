@@ -1,6 +1,18 @@
 :root {
+  --font-primary: 'Poppins', sans-serif;
+  --radius: 12px;
+
+  --color-primary: #8e54e9;
+  --color-primary-light: #f1e9ff;
+
+  --success: #38d39f;
+  --warning: #f2994a;
+  --info: #56ccf2;
+  --rose: #f291b0;
+  --yellow: #ffd166;
+
   --bg: #f7f8fc;
-  --bg-muted: #eceff8;
+  --bg-muted: #f4f7fe;
   --card-bg: #ffffff;
   --border: #d9dee9;
   --text-primary: #0b192f;
@@ -8,14 +20,16 @@
   --accent: #6c63ff;
   --accent-soft: #ede9ff;
   --danger: #ff6b6b;
-  --font-primary: 'Poppins', sans-serif;
-  --radius: 12px;
   --shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(142, 84, 233, 0.05);
+
+  --sidebar-active-bg: #f1e9ff;
 }
 
 .dark {
   --bg: #0a111f;
-  --bg-muted: #121a2d;
+  --bg-muted: #0f111a;
   --card-bg: #162034;
   --border: #263044;
   --text-primary: #f5f7fb;
@@ -24,4 +38,8 @@
   --accent-soft: #2a2454;
   --danger: #ff8787;
   --shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  --sidebar-active-bg: rgba(142, 84, 233, 0.15);
 }

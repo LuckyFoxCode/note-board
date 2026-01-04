@@ -3,6 +3,7 @@
 @import './base.css';
 @import './theme.css';
 @import './layout.css';
+@import './card.css';
 
 body {
   margin: 0;
