@@ -8,7 +8,7 @@ Focus: State → Architecture → UX → TypeScript → Vue-ready thinking.
 - [x] Step 1 — Project skeleton (Vite / TS / ESLint)
 - [x] Step 2 — Base layout (sidebar + board)
 - [x] Step 3 — Note card UI (static mock data)
-- [ ] Step 4 — Category list UI (static)
+- [x] Step 4 — Category list UI (static)
 
 What you learn:
 DOM structure, layout thinking, separation of UI blocks.
