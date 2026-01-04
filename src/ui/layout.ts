@@ -1,5 +1,6 @@
 import { cards } from '@/consts';
 import { createdCard } from './card';
+import { createCategory } from './category';
 
 export function createLayout(): {
   sidebar: HTMLElement;
@@ -7,10 +8,11 @@ export function createLayout(): {
 } {
   const sidebar = document.createElement('aside');
   sidebar.classList.add('nb-sidebar');
-  sidebar.textContent = 'Sidebar';
   sidebar.dataset.role = 'navigation';
   sidebar.dataset.mount = 'sidebar';
   sidebar.ariaLabel = 'Navigation';
+
+  const categories = createCategory();
 
   const themeBtn = document.createElement('button');
   themeBtn.classList.add('nb-theme-btn');
@@ -42,7 +44,7 @@ export function createLayout(): {
   wrapperCard.classList.add('nb-board__wrapper-card');
 
   cards.forEach((note) => wrapperCard.append(createdCard(note)));
-  sidebar.append(themeBtn);
+  sidebar.append(categories, themeBtn);
   board.append(wrapperCard);
 
   return { sidebar, board };

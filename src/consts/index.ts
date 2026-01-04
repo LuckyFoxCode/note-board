@@ -1,4 +1,4 @@
-import type { Note } from '@/types';
+import type { Note, Tag } from '@/types';
 
 export const cards: Note[] = [
   {
@@ -118,4 +118,22 @@ export const cards: Note[] = [
     updatedAt: '2026-01-03T15:00:00Z',
     archived: false,
   },
+];
+
+export const categoriesList: Tag[] = [
+  { name: 'work', color: '#4A90E2' },
+  { name: 'planning', color: '#00D084' },
+  { name: 'design', color: '#A29BFE' },
+  { name: 'urgent', color: '#FF6B6B' },
+  { name: 'personal', color: '#F7B731' },
+  { name: 'goals', color: '#FFB8A3' },
+  { name: 'shopping', color: '#F291B0' },
+  { name: 'home', color: '#38D39F' },
+  { name: 'code', color: '#7D7D7D' },
+  { name: 'review', color: '#56CCF2' },
+  { name: 'documentation', color: '#FFD966' },
+  { name: 'backend', color: '#4A90E2' },
+  { name: 'weekend', color: '#F291B0' },
+  { name: 'database', color: '#FF6B6B' },
+  { name: 'critical', color: '#FF6B6B' },
 ];

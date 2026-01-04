@@ -5,6 +5,7 @@
 @import './theme.css';
 @import './layout.css';
 @import './card.css';
+@import './category.css';
 
 body {
   margin: 0;

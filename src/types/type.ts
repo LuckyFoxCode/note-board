@@ -10,7 +10,7 @@ export interface Note {
   archived?: boolean;
 }
 
-interface Tag {
+export interface Tag {
   name: string;
   color: string;
 }
