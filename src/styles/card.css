@@ -1,0 +1,81 @@
+.nb-note-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow-md);
+  padding: 1rem;
+  transition: border-color 0.3s;
+  cursor: pointer;
+  outline: none;
+}
+
+.nb-note-card:hover {
+  border-color: var(--color-primary);
+}
+
+.nb-note-card:focus {
+  border-color: var(--accent);
+}
+
+.nb-note-card__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+}
+
+.nb-note-card__head-pointer {
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+  background-color: var(--rose);
+}
+
+.nb-note-card__head-date {
+  font-family: var(--font-secondary);
+  font-size: 13px;
+  display: flex;
+  opacity: 0.7;
+}
+
+.nb-note-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+.nb-note-card__body-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.nb-note-card__body-description {
+  font-size: 15px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  opacity: 0.6;
+}
+
+.nb-note-card__meta-tags {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.nb-note-card__meta-tag {
+  font-family: var(--font-secondary);
+  font-size: 14px;
+  border-radius: 0.5rem;
+  text-transform: capitalize;
+  border: 1px solid var(--border);
+  padding-inline: 0.5rem;
+  outline: none;
+}
