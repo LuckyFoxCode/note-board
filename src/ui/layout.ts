@@ -30,9 +30,10 @@ export function createLayout(): {
   const wrapperCard = document.createElement('div');
   wrapperCard.classList.add('nb-board__wrapper-card');
 
-  const card = createdCard();
+  for (let i = 0; i < 8; i++) {
+    wrapperCard.append(createdCard());
+  }
 
-  wrapperCard.append(card);
   board.append(themeBtn, wrapperCard);
 
   return { sidebar, board };
