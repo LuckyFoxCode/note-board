@@ -14,3 +14,9 @@ export interface Tag {
   name: string;
   color: string;
 }
+
+export interface Category {
+  id: string;
+  title: string;
+  color: string;
+}
