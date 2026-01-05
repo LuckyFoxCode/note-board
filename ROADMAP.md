@@ -15,9 +15,9 @@ DOM structure, layout thinking, separation of UI blocks.
 
 ## Phase B — TypeScript Domain Model
 
-- [ ] Step 5 — Define core types (Note, Category)
-- [ ] Step 6 — Define AppState interface
-- [ ] Step 7 — Strict null guards for DOM refs
+- [x] Step 5 — Define core types (Note, Category)
+- [x] Step 6 — Define AppState interface
+- [x] Step 7 — Strict null guards for DOM refs
 - [ ] Step 8 — HTML form + TS-safe validation
 
 Focus:
