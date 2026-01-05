@@ -29,8 +29,6 @@ export function createCategory(): HTMLDivElement {
     categoryList.appendChild(categoryItem);
   });
 
-  for (let i = 0; i < 5; i++) {}
-
   categories.append(categoryTitle, categoryList);
 
   return categories;
