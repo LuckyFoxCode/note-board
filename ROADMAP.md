@@ -21,7 +21,7 @@ DOM structure, layout thinking, separation of UI blocks.
 - [x] Step 8 — HTML form + TS-safe validation
 
 Focus:
-TS — как защита архитектуры, а не просто типы.
+Use TypeScript to enforce architecture safety, not just types.
 
 ## Phase C — State Management Core
 
