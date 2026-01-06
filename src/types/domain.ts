@@ -8,6 +8,7 @@ export interface Note {
   createdAt: string;
   updatedAt?: string;
   archived?: boolean;
+  categoryId: string;
 }
 
 export interface Tag {

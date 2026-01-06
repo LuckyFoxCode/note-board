@@ -4,6 +4,29 @@
   row-gap: 1rem;
 }
 
+.nb-category__btn {
+  font-family: var(--font-secondary);
+  color: var(--text-secondary);
+  background-color: var(--sidebar-active-bg);
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  outline: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+}
+
+.nb-category__btn:hover {
+  background-color: var(--color-primary);
+}
+
+.nb-category__btn:focus {
+  border-color: var(--accent);
+}
+
 .nb-category__title {
   font-size: 1.125rem;
   font-weight: 500;

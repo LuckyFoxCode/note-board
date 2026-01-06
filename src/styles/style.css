@@ -6,6 +6,7 @@
 @import './layout.css';
 @import './card.css';
 @import './category.css';
+@import './modals.css';
 
 body {
   margin: 0;
@@ -15,6 +16,7 @@ body {
 }
 
 #app {
+  position: relative;
   display: flex;
   width: 100vw;
   height: 100vh;

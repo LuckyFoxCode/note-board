@@ -1,10 +1,11 @@
-import { createLayout } from '@/ui';
+import { createLayout, renderModalFormCategory } from '@/ui';
 
 export function initApp() {
   const root = document.querySelector('#app') as HTMLElement;
   if (!root) throw new Error('Root element not found');
 
   const { sidebar, board } = createLayout();
+  const overlay = renderModalFormCategory();
 
-  root.append(sidebar, board);
+  root.append(overlay, sidebar, board);
 }

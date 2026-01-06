@@ -4,6 +4,15 @@ export function createCategory(): HTMLDivElement {
   const categories = document.createElement('div');
   categories.classList.add('nb-category');
 
+  const createCategoryBtn = document.createElement('button');
+  createCategoryBtn.classList.add('nb-category__btn');
+  createCategoryBtn.type = 'button';
+  createCategoryBtn.textContent = 'Add category';
+
+  createCategoryBtn.addEventListener('click', () =>
+    console.log('=== Add category ==='),
+  );
+
   const categoryTitle = document.createElement('h2');
   categoryTitle.classList.add('nb-category__title');
   categoryTitle.textContent = 'Category';
@@ -29,7 +38,7 @@ export function createCategory(): HTMLDivElement {
     categoryList.appendChild(categoryItem);
   });
 
-  categories.append(categoryTitle, categoryList);
+  categories.append(createCategoryBtn, categoryTitle, categoryList);
 
   return categories;
 }
