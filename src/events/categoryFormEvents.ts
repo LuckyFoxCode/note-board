@@ -1,8 +1,11 @@
-export function bindCategoryFormEvents(form: HTMLFormElement) {
+export function bindCategoryFormEvents(
+  form: HTMLFormElement,
+  overlay: HTMLDivElement,
+) {
   form.addEventListener('submit', (event: SubmitEvent) => {
     event.preventDefault();
 
-    const input = document.querySelector<HTMLInputElement>('input');
+    const input = form.querySelector<HTMLInputElement>('input');
     if (!input) return;
 
     const value = input.value.trim();
@@ -22,5 +25,6 @@ export function bindCategoryFormEvents(form: HTMLFormElement) {
     console.log('Category Submitted', value);
 
     input.value = '';
+    overlay.remove();
   });
 }

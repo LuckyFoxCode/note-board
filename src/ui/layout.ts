@@ -5,6 +5,7 @@ import { createCategory } from './category';
 export function renderLayout(): {
   sidebar: HTMLElement;
   board: HTMLElement;
+  addCategoryBtn: HTMLButtonElement;
 } {
   const sidebar = document.createElement('aside');
   sidebar.classList.add('nb-sidebar');
@@ -12,7 +13,7 @@ export function renderLayout(): {
   sidebar.dataset.mount = 'sidebar';
   sidebar.ariaLabel = 'Navigation';
 
-  const categories = createCategory();
+  const { container: categories, button: addCategoryBtn } = createCategory();
 
   const themeBtn = document.createElement('button');
   themeBtn.classList.add('nb-theme-btn');
@@ -47,5 +48,5 @@ export function renderLayout(): {
   sidebar.append(categories, themeBtn);
   board.append(wrapperCard);
 
-  return { sidebar, board };
+  return { sidebar, board, addCategoryBtn };
 }

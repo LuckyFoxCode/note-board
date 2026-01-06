@@ -1,17 +1,16 @@
 import { categoriesList } from '@/consts';
 
-export function createCategory(): HTMLDivElement {
+export function createCategory(): {
+  container: HTMLDivElement;
+  button: HTMLButtonElement;
+} {
   const categories = document.createElement('div');
   categories.classList.add('nb-category');
 
-  const createCategoryBtn = document.createElement('button');
-  createCategoryBtn.classList.add('nb-category__btn');
-  createCategoryBtn.type = 'button';
-  createCategoryBtn.textContent = 'Add category';
-
-  createCategoryBtn.addEventListener('click', () =>
-    console.log('=== Add category ==='),
-  );
+  const addCategoryBtn = document.createElement('button');
+  addCategoryBtn.classList.add('nb-category__btn');
+  addCategoryBtn.type = 'button';
+  addCategoryBtn.textContent = 'Add category';
 
   const categoryTitle = document.createElement('h2');
   categoryTitle.classList.add('nb-category__title');
@@ -38,7 +37,7 @@ export function createCategory(): HTMLDivElement {
     categoryList.appendChild(categoryItem);
   });
 
-  categories.append(createCategoryBtn, categoryTitle, categoryList);
+  categories.append(addCategoryBtn, categoryTitle, categoryList);
 
-  return categories;
+  return { container: categories, button: addCategoryBtn };
 }

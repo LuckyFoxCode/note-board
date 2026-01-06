@@ -1,4 +1,7 @@
-export function renderCategoryForm(): HTMLFormElement {
+export function renderCategoryForm(): {
+  form: HTMLFormElement;
+  input: HTMLInputElement;
+} {
   const form = document.createElement('form');
   form.classList.add('nb-form-category');
   form.ariaLabel = 'Form category';
@@ -18,5 +21,5 @@ export function renderCategoryForm(): HTMLFormElement {
 
   form.append(input, submitBtn);
 
-  return form;
+  return { form, input };
 }
