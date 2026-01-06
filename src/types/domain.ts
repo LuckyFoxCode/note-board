@@ -8,9 +8,16 @@ export interface Note {
   createdAt: string;
   updatedAt?: string;
   archived?: boolean;
+  // categoryId: string; // Open when will do step 9
 }
 
 export interface Tag {
   name: string;
+  color: string;
+}
+
+export interface Category {
+  id: string;
+  title: string;
   color: string;
 }
