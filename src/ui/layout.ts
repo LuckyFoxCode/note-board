@@ -2,7 +2,7 @@ import { cards } from '@/consts';
 import { createdCard } from './card';
 import { createCategory } from './category';
 
-export function createLayout(): {
+export function renderLayout(): {
   sidebar: HTMLElement;
   board: HTMLElement;
 } {
