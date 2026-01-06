@@ -18,7 +18,7 @@ DOM structure, layout thinking, separation of UI blocks.
 - [x] Step 5 — Define core types (Note, Category)
 - [x] Step 6 — Define AppState interface
 - [x] Step 7 — Strict null guards for DOM refs
-- [ ] Step 8 — HTML form + TS-safe validation
+- [x] Step 8 — HTML form + TS-safe validation
 
 Focus:
 TS — как защита архитектуры, а не просто типы.
