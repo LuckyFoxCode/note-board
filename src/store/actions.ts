@@ -1,32 +1,33 @@
 import type { AppState, CreateNotePayload, Note } from '@/types';
 
-export function createNote(state: AppState, payload: CreateNotePayload) {
-  const { title, excerpt, categoryId } = payload;
+export function addNoteToState(
+  state: AppState,
+  payload: CreateNotePayload,
+): AppState {
+  const { title, excerpt, categoryId, tags } = payload;
 
-  // find => some
-  // ''.length
-  // && => ||
+  const categoryIsValid =
+    categoryId !== null && state.categories.some((c) => c.id === categoryId);
 
-  const invalidateCategoryId = state.categories.find((c) =>
-    c.id.includes(categoryId),
-  );
-
-  if (
-    !(title.trim() !== '') &&
-    !(excerpt.trim() !== '') &&
-    !invalidateCategoryId
-  ) {
+  if (title.trim() === '' || excerpt.trim() === '' || !categoryIsValid) {
     return state;
   }
+  const now = new Date().toISOString();
 
   const newNote: Note = {
     id: crypto.randomUUID(),
-    createdAt: new Date().toDateString(),
-    updatedAt: new Date().toDateString(),
+    createdAt: now,
+    updatedAt: now,
     archived: false,
     pinned: false,
-    ...payload,
+    categoryId: categoryId!,
+    title,
+    excerpt,
+    tags,
   };
 
-  return [...state.notes, newNote];
+  return {
+    ...state,
+    notes: [...state.notes, newNote],
+  };
 }

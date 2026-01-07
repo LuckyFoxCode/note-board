@@ -4,7 +4,7 @@ export interface AppState {
   notes: Note[];
   categories: Category[];
   filters: {
-    categoriesId: string | null;
+    categoryId: string | null;
     search: string;
     sortBy: 'date' | 'pinned';
     archived: boolean;

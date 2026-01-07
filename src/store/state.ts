@@ -10,7 +10,7 @@ export const state: RootState = {
     notes: [],
     categories: [{ id: '1', color: '#fff', title: '1' }],
     filters: {
-      categoriesId: null,
+      categoryId: null,
       search: '',
       archived: false,
       sortBy: 'date',

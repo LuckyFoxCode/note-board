@@ -6,7 +6,7 @@ export interface Note {
   pinned: boolean;
   createdAt: string;
   updatedAt?: string;
-  archived?: boolean;
+  archived: boolean;
   categoryId: string;
 }
 
@@ -25,5 +25,5 @@ export interface CreateNotePayload {
   title: string;
   excerpt: string;
   tags: Tag[];
-  categoryId: string;
+  categoryId: string | null;
 }
