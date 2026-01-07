@@ -9,7 +9,12 @@ export const state: RootState = {
   app: {
     notes: [],
     categories: [],
-    filters: {},
+    filters: {
+      categoriesId: null,
+      search: '',
+      archived: false,
+      sortBy: 'date',
+    },
   },
   ui: {
     theme: 'light',
