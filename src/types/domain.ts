@@ -4,11 +4,10 @@ export interface Note {
   excerpt: string;
   tags: Tag[];
   pinned: boolean;
-  color: string;
   createdAt: string;
   updatedAt?: string;
   archived?: boolean;
-  // categoryId: string; // Open when will do step 9
+  categoryId: string;
 }
 
 export interface Tag {
@@ -20,4 +19,11 @@ export interface Category {
   id: string;
   title: string;
   color: string;
+}
+
+export interface CreateNotePayload {
+  title: string;
+  excerpt: string;
+  tags: Tag[];
+  categoryId: string;
 }
