@@ -52,3 +52,10 @@ export function updateNote(
     ),
   };
 }
+
+export function removeNote(state: AppState, payload: Note['id']): AppState {
+  return {
+    ...state,
+    notes: state.notes.filter((note) => note.id !== payload),
+  };
+}
