@@ -1,5 +1,5 @@
 import { bindOpenCategoryModal } from '@/events';
-import { addNoteToState, state } from '@/store';
+import { addNote, state } from '@/store';
 import { renderLayout } from '@/ui';
 
 export function initApp() {
@@ -18,7 +18,7 @@ export function initApp() {
     categoryId: '1',
   };
 
-  const data = addNoteToState(state.app, obj);
+  const data = addNote(state.app, obj);
 
   console.log(data);
 }

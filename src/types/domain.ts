@@ -21,9 +21,9 @@ export interface Category {
   color: string;
 }
 
-export interface CreateNotePayload {
-  title: string;
-  excerpt: string;
-  tags: Tag[];
-  categoryId: string | null;
-}
+export type CreateNotePayload = Pick<
+  Note,
+  'title' | 'excerpt' | 'tags' | 'categoryId'
+>;
+
+export type UpdateNotePayload = Pick<Note, 'id' | 'title' | 'excerpt' | 'tags'>;
