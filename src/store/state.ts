@@ -1,3 +1,4 @@
+import { cards } from '@/consts';
 import type { AppState, UI } from '@/types';
 
 export interface RootState {
@@ -7,7 +8,7 @@ export interface RootState {
 
 export const state: RootState = {
   app: {
-    notes: [],
+    notes: [...cards],
     categories: [{ id: '1', color: '#fff', title: '1' }],
     filters: {
       categoryId: null,

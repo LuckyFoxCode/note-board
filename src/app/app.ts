@@ -1,5 +1,5 @@
 import { bindOpenCategoryModal } from '@/events';
-import { addNote, state } from '@/store';
+import { addNote, getFilteredNotes, state } from '@/store';
 import { renderLayout } from '@/ui';
 
 export function initApp() {
@@ -19,6 +19,8 @@ export function initApp() {
   };
 
   const data = addNote(state.app, obj);
+  const filter = getFilteredNotes(state.app, 'categoryId', '2');
 
-  console.log(data);
+  console.log('--- data ---', data);
+  console.log('--- filter ---', filter);
 }
