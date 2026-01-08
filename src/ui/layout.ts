@@ -5,9 +5,10 @@ export function renderLayout(): {
   sidebar: HTMLElement;
   board: HTMLElement;
   addCategoryBtn: HTMLButtonElement;
+  themeBtn: HTMLButtonElement;
 } {
-  const { sidebar, addCategoryBtn } = renderSidebar();
+  const { sidebar, addCategoryBtn, themeBtn } = renderSidebar();
   const board = renderBoard();
 
-  return { sidebar, board, addCategoryBtn };
+  return { sidebar, board, addCategoryBtn, themeBtn };
 }

@@ -3,6 +3,7 @@ import { createCategory } from './category';
 export function renderSidebar(): {
   sidebar: HTMLElement;
   addCategoryBtn: HTMLButtonElement;
+  themeBtn: HTMLButtonElement;
 } {
   const sidebar = document.createElement('aside');
   sidebar.classList.add('nb-sidebar');
@@ -17,13 +18,7 @@ export function renderSidebar(): {
   themeBtn.type = 'button';
   themeBtn.textContent = '☀️';
 
-  themeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    themeBtn.textContent =
-      document.body.classList.contains('dark') === true ? '🌙' : '☀️';
-  });
-
   sidebar.append(categories, themeBtn);
 
-  return { sidebar, addCategoryBtn };
+  return { sidebar, addCategoryBtn, themeBtn };
 }

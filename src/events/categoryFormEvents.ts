@@ -1,3 +1,6 @@
+import { COLORS_CATEGORIES } from '@/consts';
+import { state } from '@/store';
+
 export function bindCategoryFormEvents(
   form: HTMLFormElement,
   overlay: HTMLDivElement,
@@ -23,6 +26,21 @@ export function bindCategoryFormEvents(
 
     input.classList.remove('input-error');
     console.log('Category Submitted', value);
+
+    const colorLenght = Object.values(COLORS_CATEGORIES).length;
+
+    const randomColor =
+      Object.values(COLORS_CATEGORIES)[Math.floor(Math.random() * colorLenght)];
+
+    const newCategory = {
+      id: crypto.randomUUID(),
+      title: value,
+      color: randomColor,
+    };
+
+    state.app.categories.push(newCategory);
+
+    console.log(newCategory);
 
     input.value = '';
     overlay.remove();

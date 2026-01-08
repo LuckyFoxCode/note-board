@@ -1,4 +1,5 @@
-import { categoriesList } from '@/consts';
+// import { categoriesList } from '@/consts';
+import { state } from '@/store';
 
 export function createCategory(): {
   container: HTMLDivElement;
@@ -19,10 +20,10 @@ export function createCategory(): {
   const categoryList = document.createElement('ul');
   categoryList.classList.add('nb-category__list');
 
-  categoriesList.forEach((cat) => {
+  state.app.categories.forEach((cat) => {
     const categoryItem = document.createElement('li');
     categoryItem.classList.add('nb-category__item');
-    categoryItem.dataset.id = cat.name;
+    categoryItem.dataset.id = cat.title;
     categoryItem.tabIndex = 1;
 
     const itemPoint = document.createElement('span');
@@ -31,7 +32,7 @@ export function createCategory(): {
 
     const itemTitle = document.createElement('span');
     itemTitle.classList.add('nb-category__item-title');
-    itemTitle.textContent = cat.name;
+    itemTitle.textContent = cat.title;
     categoryItem.append(itemPoint, itemTitle);
 
     categoryList.appendChild(categoryItem);
