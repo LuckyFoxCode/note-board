@@ -29,7 +29,7 @@ Use TypeScript to enforce architecture safety, not just types.
 - [x] Step 10 — Create note
 - [x] Step 11 — Update note
 - [x] Step 12 — Delete note
-- [ ] Step 13 — Derived state (filteredNotes, stats)
+- [x] Step 13 — Derived state (filteredNotes, stats)
 
 Concepts:
 Single source of truth, immutable updates, derived data.
