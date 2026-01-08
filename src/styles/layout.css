@@ -29,11 +29,11 @@
 
 .nb-sidebar,
 .nb-board {
+  height: 100vh;
   padding: 4px;
 }
 
 .nb-board {
-  height: 100vh;
   display: flex;
   flex: 1;
   row-gap: 1rem;
@@ -55,7 +55,6 @@
 }
 
 /* MEDIA */
-/* >540px */
 @media (min-width: 540px) {
   .nb-sidebar,
   .nb-board {
