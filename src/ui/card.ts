@@ -1,7 +1,7 @@
 import type { Note } from '@/types';
 
 export function createdCard(note: Note) {
-  const { id, createdAt, title: titleNote, excerpt, tags, color } = note;
+  const { id, createdAt, title: titleNote, excerpt, tags } = note;
 
   const formattedDate = new Date(createdAt).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -25,7 +25,7 @@ export function createdCard(note: Note) {
 
   const point = document.createElement('div');
   point.classList.add('nb-note-card__head-pointer');
-  point.style.backgroundColor = color;
+  point.style.backgroundColor = '#8e54e9';
 
   const body = document.createElement('div');
   body.classList.add('nb-note-card__body');

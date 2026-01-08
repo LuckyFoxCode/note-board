@@ -25,11 +25,11 @@ Use TypeScript to enforce architecture safety, not just types.
 
 ## Phase C — State Management Core
 
-- [ ] Step 9 — Central state store (notes, categories, filters)
-- [ ] Step 10 — Create note
-- [ ] Step 11 — Update note
-- [ ] Step 12 — Delete note
-- [ ] Step 13 — Derived state (filteredNotes, stats)
+- [x] Step 9 — Central state store (notes, categories, filters)
+- [x] Step 10 — Create note
+- [x] Step 11 — Update note
+- [x] Step 12 — Delete note
+- [x] Step 13 — Derived state (filteredNotes, stats)
 
 Concepts:
 Single source of truth, immutable updates, derived data.

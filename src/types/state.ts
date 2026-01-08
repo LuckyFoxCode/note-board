@@ -4,10 +4,10 @@ export interface AppState {
   notes: Note[];
   categories: Category[];
   filters: {
-    categoriesId?: string;
-    search?: string;
-    sortBy?: 'date' | 'pinned';
-    archoved?: boolean;
+    categoryId: string | null;
+    search: string;
+    sortBy: 'date' | 'pinned';
+    archived: boolean;
   };
 }
 
