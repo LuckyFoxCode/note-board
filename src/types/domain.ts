@@ -20,6 +20,7 @@ export interface Category {
   title: string;
   color: string;
 }
+export type CreateCategoryPayload = Pick<Category, 'title'>;
 
 export type CreateNotePayload = Pick<
   Note,

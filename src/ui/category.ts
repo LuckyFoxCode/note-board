@@ -1,5 +1,5 @@
-// import { categoriesList } from '@/consts';
 import { state } from '@/store';
+import { createCategoryItem } from './categoryItem';
 
 export function createCategory(): {
   container: HTMLDivElement;
@@ -21,21 +21,9 @@ export function createCategory(): {
   categoryList.classList.add('nb-category__list');
 
   state.app.categories.forEach((cat) => {
-    const categoryItem = document.createElement('li');
-    categoryItem.classList.add('nb-category__item');
-    categoryItem.dataset.id = cat.title;
-    categoryItem.tabIndex = 1;
+    const item = createCategoryItem(cat);
 
-    const itemPoint = document.createElement('span');
-    itemPoint.classList.add('nb-category__item-point');
-    itemPoint.style.backgroundColor = cat.color;
-
-    const itemTitle = document.createElement('span');
-    itemTitle.classList.add('nb-category__item-title');
-    itemTitle.textContent = cat.title;
-    categoryItem.append(itemPoint, itemTitle);
-
-    categoryList.appendChild(categoryItem);
+    categoryList.appendChild(item);
   });
 
   categories.append(addCategoryBtn, categoryTitle, categoryList);
