@@ -73,10 +73,33 @@
   border-radius: 100%;
 }
 
+.nb-category__item-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
 .nb-category__item-title {
+  flex: 1;
   font-family: var(--font-secondary);
   text-transform: capitalize;
   color: var(--text-secondary);
+}
+
+.nb-category__item-remove {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon-remove {
+  color: var(--rose);
+  transition: color 0.3s;
+}
+.nb-category__item-remove:hover svg {
+  color: var(--border);
 }
 
 /* MEDIA */

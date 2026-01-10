@@ -30,6 +30,16 @@ export function addCategory(
   };
 }
 
+export function removeCategory(
+  state: AppState,
+  payload: Category['id'],
+): AppState {
+  return {
+    ...state,
+    categories: state.categories.filter((category) => category.id !== payload),
+  };
+}
+
 export function addNote(state: AppState, payload: CreateNotePayload): AppState {
   const { title, excerpt, categoryId, tags } = payload;
 

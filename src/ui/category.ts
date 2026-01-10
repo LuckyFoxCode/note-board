@@ -21,12 +21,15 @@ export function createCategory(): {
   categoryList.classList.add('nb-category__list');
 
   state.app.categories.forEach((cat) => {
-    const item = createCategoryItem(cat);
+    const { categoryItem } = createCategoryItem(cat);
 
-    categoryList.appendChild(item);
+    categoryList.appendChild(categoryItem);
   });
 
   categories.append(addCategoryBtn, categoryTitle, categoryList);
 
-  return { container: categories, button: addCategoryBtn };
+  return {
+    container: categories,
+    button: addCategoryBtn,
+  };
 }
