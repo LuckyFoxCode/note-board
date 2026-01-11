@@ -3,10 +3,7 @@ import { icons } from '@/assets/icons';
 import type { Category } from '@/types';
 import { createSvgIcon } from '@/utils';
 
-export function createCategoryItem(cat: Category): {
-  categoryItem: HTMLLIElement;
-  itemRemoveBtn: HTMLButtonElement;
-} {
+export function createCategoryItem(cat: Category): HTMLLIElement {
   const categoryItem = document.createElement('li');
   categoryItem.classList.add('nb-category__item');
   categoryItem.dataset.id = cat.id;
@@ -29,11 +26,12 @@ export function createCategoryItem(cat: Category): {
   const itemRemoveBtn = document.createElement('button');
   itemRemoveBtn.classList.add('nb-category__item-remove');
   itemRemoveBtn.type = 'button';
+  itemRemoveBtn.dataset.action = 'remove-category';
   itemRemoveBtn.dataset.id = cat.id;
 
   itemRemoveBtn.append(removeIcon);
   itemWrapper.append(itemTitle, itemRemoveBtn);
   categoryItem.append(itemWrapper);
 
-  return { categoryItem, itemRemoveBtn };
+  return categoryItem;
 }

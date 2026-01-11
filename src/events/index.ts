@@ -1,4 +1,3 @@
 export * from './categoryFormEvents';
-export * from './openCategoryModal';
-export * from './removeCategory';
+export * from './sidebarEvents';
 export * from './toggleTheme';

@@ -1,16 +1,14 @@
 import { state } from '@/store';
 import { createCategoryItem } from './categoryItem';
 
-export function createCategory(): {
-  container: HTMLDivElement;
-  button: HTMLButtonElement;
-} {
+export function createCategory(): HTMLDivElement {
   const categories = document.createElement('div');
   categories.classList.add('nb-category');
 
   const addCategoryBtn = document.createElement('button');
   addCategoryBtn.classList.add('nb-category__btn');
   addCategoryBtn.type = 'button';
+  addCategoryBtn.dataset.action = 'add-category';
   addCategoryBtn.textContent = 'Add category';
 
   const categoryTitle = document.createElement('h2');
@@ -21,15 +19,10 @@ export function createCategory(): {
   categoryList.classList.add('nb-category__list');
 
   state.app.categories.forEach((cat) => {
-    const { categoryItem } = createCategoryItem(cat);
-
-    categoryList.appendChild(categoryItem);
+    categoryList.appendChild(createCategoryItem(cat));
   });
 
   categories.append(addCategoryBtn, categoryTitle, categoryList);
 
-  return {
-    container: categories,
-    button: addCategoryBtn,
-  };
+  return categories;
 }

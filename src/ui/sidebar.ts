@@ -2,7 +2,7 @@ import { createCategory } from './category';
 
 export function renderSidebar(): {
   sidebar: HTMLElement;
-  addCategoryBtn: HTMLButtonElement;
+
   themeBtn: HTMLButtonElement;
 } {
   const sidebar = document.createElement('aside');
@@ -11,7 +11,7 @@ export function renderSidebar(): {
   sidebar.dataset.mount = 'sidebar';
   sidebar.ariaLabel = 'Navigation';
 
-  const { container: categories, button: addCategoryBtn } = createCategory();
+  const categories = createCategory();
 
   const themeBtn = document.createElement('button');
   themeBtn.classList.add('nb-theme-btn');
@@ -20,5 +20,5 @@ export function renderSidebar(): {
 
   sidebar.append(categories, themeBtn);
 
-  return { sidebar, addCategoryBtn, themeBtn };
+  return { sidebar, themeBtn };
 }
