@@ -1,8 +1,9 @@
+import { createSvgIcon } from '@/utils';
 import { createCategory } from './category';
+import { icons } from '@/assets/icons';
 
 export function renderSidebar(): {
   sidebar: HTMLElement;
-
   themeBtn: HTMLButtonElement;
 } {
   const sidebar = document.createElement('aside');
@@ -12,12 +13,13 @@ export function renderSidebar(): {
   sidebar.ariaLabel = 'Navigation';
 
   const categories = createCategory();
+  const sunIcon = createSvgIcon(icons.sunIcon, 'icon-sun');
 
   const themeBtn = document.createElement('button');
   themeBtn.classList.add('nb-theme-btn');
   themeBtn.type = 'button';
-  themeBtn.textContent = '☀️';
 
+  themeBtn.append(sunIcon);
   sidebar.append(categories, themeBtn);
 
   return { sidebar, themeBtn };

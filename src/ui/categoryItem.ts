@@ -1,5 +1,5 @@
 import { icons } from '@/assets/icons';
-
+import { state } from '@/store';
 import type { Category } from '@/types';
 import { createSvgIcon } from '@/utils';
 
@@ -31,7 +31,7 @@ export function createCategoryItem(cat: Category): HTMLLIElement {
 
   itemRemoveBtn.append(removeIcon);
   itemWrapper.append(itemTitle, itemRemoveBtn);
-  categoryItem.append(itemWrapper);
+  state.ui.isOpenSidebar && categoryItem.append(itemWrapper);
 
   return categoryItem;
 }
