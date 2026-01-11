@@ -1,8 +1,4 @@
-import {
-  renderCategoryForm,
-  renderOverlayWithForm,
-  rerenderCategories,
-} from '@/ui';
+import { renderCategoryForm, renderOverlayWithForm, rerender } from '@/ui';
 import { bindCategoryFormEvents } from './categoryFormEvents';
 import { removeCategory, state } from '@/store';
 
@@ -29,7 +25,7 @@ export function bindSidebarEvents(root: HTMLElement) {
         if (!id) return;
 
         state.app = removeCategory(state.app, id);
-        rerenderCategories();
+        rerender.categories();
         break;
       }
     }

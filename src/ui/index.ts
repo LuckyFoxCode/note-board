@@ -5,5 +5,6 @@ export * from './categoryItem';
 export * from './categoryForm';
 export * from './layout';
 export * from './overlay';
+export * from './rerender';
 export * from './rerenderCategories';
 export * from './sidebar';

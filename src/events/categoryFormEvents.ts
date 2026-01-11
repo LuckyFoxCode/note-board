@@ -1,5 +1,5 @@
 import { addCategory, state } from '@/store';
-import { rerenderCategories } from '@/ui';
+import { rerender } from '@/ui';
 
 export function bindCategoryFormEvents(
   form: HTMLFormElement,
@@ -31,7 +31,7 @@ export function bindCategoryFormEvents(
     };
 
     state.app = addCategory(state.app, newCategory);
-    rerenderCategories();
+    rerender.categories();
 
     input.value = '';
     overlay.remove();
