@@ -1,3 +1,6 @@
+import { addCategory, state } from '@/store';
+import { rerender } from '@/ui';
+
 export function bindCategoryFormEvents(
   form: HTMLFormElement,
   overlay: HTMLDivElement,
@@ -22,7 +25,13 @@ export function bindCategoryFormEvents(
     }
 
     input.classList.remove('input-error');
-    console.log('Category Submitted', value);
+
+    const newCategory = {
+      title: value,
+    };
+
+    state.app = addCategory(state.app, newCategory);
+    rerender.categories();
 
     input.value = '';
     overlay.remove();

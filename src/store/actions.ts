@@ -1,9 +1,44 @@
+import { COLORS_CATEGORIES } from '@/consts';
 import type {
   AppState,
+  Category,
+  CreateCategoryPayload,
   CreateNotePayload,
   Note,
   UpdateNotePayload,
 } from '@/types';
+
+export function addCategory(
+  state: AppState,
+  payload: CreateCategoryPayload,
+): AppState {
+  if (payload.title.trim() === '') return state;
+
+  const colorsLength = Object.values(COLORS_CATEGORIES).length;
+  const randomColor =
+    Object.values(COLORS_CATEGORIES)[Math.floor(Math.random() * colorsLength)];
+
+  const newCategory: Category = {
+    id: crypto.randomUUID(),
+    title: payload.title,
+    color: randomColor,
+  };
+
+  return {
+    ...state,
+    categories: [...state.categories, newCategory],
+  };
+}
+
+export function removeCategory(
+  state: AppState,
+  payload: Category['id'],
+): AppState {
+  return {
+    ...state,
+    categories: state.categories.filter((category) => category.id !== payload),
+  };
+}
 
 export function addNote(state: AppState, payload: CreateNotePayload): AppState {
   const { title, excerpt, categoryId, tags } = payload;

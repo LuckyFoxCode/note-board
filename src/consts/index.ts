@@ -137,3 +137,13 @@ export const categoriesList: Tag[] = [
   { name: 'database', color: '#FF6B6B' },
   { name: 'critical', color: '#FF6B6B' },
 ];
+
+export const COLORS_CATEGORIES = {
+  violet: '#8e54e9',
+  green: '#38d39f',
+  orange: '#f2994a',
+  blue: '#56ccf2',
+  rose: '#f291b0',
+  yellow: '#ffd166',
+  sky: '#6c63ff',
+};

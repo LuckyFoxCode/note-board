@@ -36,10 +36,10 @@ Single source of truth, immutable updates, derived data.
 
 ## Phase D — Rendering & Controllers
 
-- [ ] Step 14 — Render notes board
-- [ ] Step 15 — Render categories sidebar
-- [ ] Step 16 — Controllers layer (events → state)
-- [ ] Step 17 — UI re-render strategy (full vs partial)
+- [x] Step 14 — Render notes board
+- [x] Step 15 — Render categories sidebar
+- [x] Step 16 — Controllers layer (events → state)
+- [x] Step 17 — UI re-render strategy (full vs partial)
 
 Key idea:
 UI ничего не решает, только отображает.
