@@ -7,6 +7,7 @@ export function createCategoryItem(cat: Category): HTMLLIElement {
   const categoryItem = document.createElement('li');
   categoryItem.classList.add('nb-category__item');
   categoryItem.dataset.id = cat.id;
+  categoryItem.dataset.action = 'filter-category';
   categoryItem.tabIndex = 1;
 
   const itemPoint = document.createElement('span');

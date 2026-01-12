@@ -19,7 +19,7 @@ export function createCategory(): HTMLDivElement {
 
   const categoryTitle = document.createElement('h2');
   categoryTitle.classList.add('nb-category__title');
-  // categoryTitle.textContent = 'Category';
+  categoryTitle.textContent = 'Category';
   const iconTitle = createSvgIcon(icons.folderIcon, 'icon-title');
   categoryTitle.append(iconTitle);
 

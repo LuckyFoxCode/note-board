@@ -7,4 +7,5 @@ export * from './layout';
 export * from './overlay';
 export * from './rerender';
 export * from './rerenderCategories';
+export * from './rerenderNotes';
 export * from './sidebar';
