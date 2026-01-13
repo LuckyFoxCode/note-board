@@ -46,7 +46,7 @@ UI ничего не решает, только отображает.
 
 ## Phase E — Filtering, Search & Sorting
 
-- [ ] Step 18 — Filter by category
+- [x] Step 18 — Filter by category
 - [ ] Step 19 — Search by title & tags
 - [ ] Step 20 — Sorting (date / pinned)
 - [ ] Step 21 — Archive filter
