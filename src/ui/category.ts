@@ -17,11 +17,14 @@ export function createCategory(): HTMLDivElement {
   addCategoryBtn.type = 'button';
   addCategoryBtn.dataset.action = 'add-category';
 
-  const categoryTitle = document.createElement('h2');
-  categoryTitle.classList.add('nb-category__title');
-  categoryTitle.textContent = 'Category';
+  const categoryWrapper = document.createElement('div');
+  categoryWrapper.classList.add('nb-category__wrapper');
+
   const iconTitle = createSvgIcon(icons.folderIcon, 'icon-title');
-  categoryTitle.append(iconTitle);
+
+  const categoryTitle = document.createElement('h2');
+  categoryTitle.classList.add('nb-category__wrapper-title');
+  categoryTitle.textContent = 'Category';
 
   const categoryList = document.createElement('ul');
   categoryList.classList.add('nb-category__list');
@@ -32,7 +35,9 @@ export function createCategory(): HTMLDivElement {
 
   addCategoryBtn.append(addBtnIcon);
   state.ui.isOpenSidebar && addCategoryBtn.append(titleBtn);
-  categories.append(addCategoryBtn, categoryTitle, categoryList);
+
+  categoryWrapper.append(iconTitle, categoryTitle);
+  categories.append(addCategoryBtn, categoryWrapper, categoryList);
 
   return categories;
 }

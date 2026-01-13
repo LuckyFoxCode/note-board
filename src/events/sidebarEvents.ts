@@ -26,18 +26,15 @@ export function bindSidebarEvents(root: HTMLElement) {
 
         state.app = removeCategory(state.app, id);
         rerender.categories();
+        rerender.notes();
         break;
       }
       case 'filter-category': {
         const id = actionEl.dataset.id;
         if (!id) return;
-        console.log(state.app.filters, 'first', state.app.notes);
 
         state.app.filters = { ...state.app.filters, categoryId: id };
         rerender.notes();
-
-        console.log(state.app.filters, 'second', state.app.notes);
-
         break;
       }
     }

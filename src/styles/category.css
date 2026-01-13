@@ -41,17 +41,23 @@
   color: var(--text-secondary);
 }
 
-.nb-category__title {
-  font-size: 1.125rem;
-  font-weight: 500;
+.nb-category__wrapper {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .icon-title {
   width: 20px;
   height: 20px;
+  color: var(--text-secondary);
+}
+
+.nb-category__wrapper-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  flex: 1;
   color: var(--text-secondary);
 }
 
@@ -145,5 +151,10 @@
 
   .nb-category__btn {
     padding: 0.5rem 1rem;
+  }
+
+  .icon-title {
+    width: 24px;
+    height: 24px;
   }
 }
