@@ -10,6 +10,26 @@
   justify-content: space-between;
 }
 
+.nb-sidebar__wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-block: 1rem;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.nb-sidebar__wrapper-btn_home {
+  padding: 0.5rem 0.25rem;
+  border-radius: var(--radius);
+  background-color: var(--sidebar-active-bg);
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.nb-sidebar__wrapper-btn_home:hover {
+  background-color: var(--color-primary);
+}
+
 .nb-theme-btn {
   display: flex;
   justify-content: center;

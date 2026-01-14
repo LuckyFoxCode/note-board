@@ -12,6 +12,15 @@ export function renderSidebar(): {
   sidebar.dataset.mount = 'sidebar';
   sidebar.ariaLabel = 'Navigation';
 
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('nb-sidebar__wrapper');
+
+  const btnHome = document.createElement('button');
+  btnHome.classList.add('nb-sidebar__wrapper-btn_home');
+  btnHome.type = 'button';
+  btnHome.dataset.action = 'all-notes';
+  btnHome.textContent = 'Home';
+
   const categories = createCategory();
   const sunIcon = createSvgIcon(icons.sunIcon, 'icon-sun');
 
@@ -19,8 +28,9 @@ export function renderSidebar(): {
   themeBtn.classList.add('nb-theme-btn');
   themeBtn.type = 'button';
 
+  wrapper.append(btnHome);
   themeBtn.append(sunIcon);
-  sidebar.append(categories, themeBtn);
+  sidebar.append(wrapper, categories, themeBtn);
 
   return { sidebar, themeBtn };
 }

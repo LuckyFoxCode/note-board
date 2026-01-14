@@ -1,6 +1,7 @@
 import { renderCategoryForm, renderOverlayWithForm, rerender } from '@/ui';
 import { bindCategoryFormEvents } from './categoryFormEvents';
 import { removeCategory, state } from '@/store';
+import { setActive } from '@/utils';
 
 export function bindSidebarEvents(root: HTMLElement) {
   root.addEventListener('click', (event) => {
@@ -33,7 +34,17 @@ export function bindSidebarEvents(root: HTMLElement) {
         const id = actionEl.dataset.id;
         if (!id) return;
 
+        const categoryItem = actionEl.closest<HTMLLIElement>('li');
+        if (!categoryItem) return;
+
+        setActive(root, categoryItem);
         state.app.filters = { ...state.app.filters, categoryId: id };
+        rerender.notes();
+        break;
+      }
+      case 'all-notes': {
+        setActive(root, actionEl);
+        state.app.filters = { ...state.app.filters, categoryId: null };
         rerender.notes();
         break;
       }
