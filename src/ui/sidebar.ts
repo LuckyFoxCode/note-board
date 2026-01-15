@@ -6,6 +6,9 @@ export function renderSidebar(): {
   sidebar: HTMLElement;
   themeBtn: HTMLButtonElement;
 } {
+  const homeIcon = createSvgIcon(icons.homeIcon, 'icon-home');
+  const sunIcon = createSvgIcon(icons.sunIcon, 'icon-sun');
+
   const sidebar = document.createElement('aside');
   sidebar.classList.add('nb-sidebar');
   sidebar.dataset.role = 'navigation';
@@ -19,16 +22,18 @@ export function renderSidebar(): {
   btnHome.classList.add('nb-sidebar__wrapper-btn_home');
   btnHome.type = 'button';
   btnHome.dataset.action = 'all-notes';
-  btnHome.textContent = 'Home';
+
+  const btnTitle = document.createElement('span');
+  btnTitle.textContent = 'Home';
 
   const categories = createCategory();
-  const sunIcon = createSvgIcon(icons.sunIcon, 'icon-sun');
 
   const themeBtn = document.createElement('button');
   themeBtn.classList.add('nb-theme-btn');
   themeBtn.type = 'button';
 
   wrapper.append(btnHome);
+  btnHome.append(homeIcon, btnTitle);
   themeBtn.append(sunIcon);
   sidebar.append(wrapper, categories, themeBtn);
 

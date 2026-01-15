@@ -19,6 +19,9 @@
 }
 
 .nb-sidebar__wrapper-btn_home {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.5rem 0.25rem;
   border-radius: var(--radius);
   background-color: var(--sidebar-active-bg);
