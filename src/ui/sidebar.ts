@@ -1,6 +1,7 @@
 import { createSvgIcon } from '@/utils';
 import { createCategory } from './category';
 import { icons } from '@/assets/icons';
+import { renderButton } from './button';
 
 export function renderSidebar(): {
   sidebar: HTMLElement;
@@ -18,13 +19,13 @@ export function renderSidebar(): {
   const wrapper = document.createElement('div');
   wrapper.classList.add('nb-sidebar__wrapper');
 
-  const btnHome = document.createElement('button');
-  btnHome.classList.add('nb-sidebar__wrapper-btn_home');
-  btnHome.type = 'button';
-  btnHome.dataset.action = 'all-notes';
-
-  const btnTitle = document.createElement('span');
-  btnTitle.textContent = 'Home';
+  const btnHome = renderButton({
+    id: 'home',
+    action: 'all-notes',
+    className: 'nb-sidebar__wrapper-btn_home',
+    title: 'Home',
+    icon: homeIcon,
+  });
 
   const categories = createCategory();
 
@@ -33,7 +34,6 @@ export function renderSidebar(): {
   themeBtn.type = 'button';
 
   wrapper.append(btnHome);
-  btnHome.append(homeIcon, btnTitle);
   themeBtn.append(sunIcon);
   sidebar.append(wrapper, categories, themeBtn);
 

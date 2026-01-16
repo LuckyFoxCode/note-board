@@ -1,4 +1,5 @@
 export * from './board';
+export * from './button';
 export * from './card';
 export * from './category';
 export * from './categoryItem';

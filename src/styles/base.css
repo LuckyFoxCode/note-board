@@ -39,6 +39,12 @@ ul {
   margin: 0;
 }
 
+.button {
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  outline: none;
+}
+
 .icon {
   width: 18px;
   height: 18px;
