@@ -49,7 +49,7 @@ UI ничего не решает, только отображает.
 - [x] Step 18 — Filter by category
 - [ ] Step 19 — Search by title & tags
 - [ ] Step 20 — Sorting (date / pinned)
-- [ ] Step 21 — Archive filter
+- [x] Step 21 — Archive filter
 
 This mirrors real apps (Notion, Gmail, Trello).
 
