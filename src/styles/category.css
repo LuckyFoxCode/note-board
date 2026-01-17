@@ -128,16 +128,9 @@
   color: var(--danger);
 }
 
-@media (min-width: 768px) {
-}
-
 @media (min-width: 1024px) {
   .nb-category {
     padding-bottom: 1rem;
-  }
-
-  .nb-category__btn {
-    /* padding: 0.5rem 1rem; */
   }
 
   .icon-title {
