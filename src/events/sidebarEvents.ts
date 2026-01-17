@@ -38,13 +38,27 @@ export function bindSidebarEvents(root: HTMLElement) {
         if (!categoryItem) return;
 
         setActive(root, categoryItem);
-        state.app.filters = { ...state.app.filters, categoryId: id };
+        state.app.filters = {
+          ...state.app.filters,
+          categoryId: id,
+          archived: false,
+        };
         rerender.notes();
         break;
       }
       case 'all-notes': {
         setActive(root, actionEl);
-        state.app.filters = { ...state.app.filters, categoryId: null };
+        state.app.filters = {
+          ...state.app.filters,
+          categoryId: null,
+          archived: false,
+        };
+        rerender.notes();
+        break;
+      }
+      case 'archived-notes': {
+        setActive(root, actionEl);
+        state.app.filters = { ...state.app.filters, archived: true };
         rerender.notes();
         break;
       }

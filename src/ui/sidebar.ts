@@ -8,6 +8,7 @@ export function renderSidebar(): {
   btnTheme: HTMLButtonElement;
 } {
   const homeIcon = createSvgIcon(icons.homeIcon, 'icon-home');
+  const archiveIcon = createSvgIcon(icons.archiveIcon, 'icon-archive');
   const sunIcon = createSvgIcon(icons.sunIcon, 'icon-sun');
 
   const sidebar = document.createElement('aside');
@@ -21,9 +22,15 @@ export function renderSidebar(): {
 
   const btnHome = renderButton({
     action: 'all-notes',
-    className: 'nb-sidebar__wrapper-btn_home',
+    className: 'nb-sidebar__wrapper-btn',
     title: 'Home',
     icon: homeIcon,
+  });
+  const btnArchived = renderButton({
+    action: 'archived-notes',
+    className: 'nb-sidebar__wrapper-btn',
+    title: 'Archived',
+    icon: archiveIcon,
   });
 
   const categories = createCategory();
@@ -34,7 +41,7 @@ export function renderSidebar(): {
     icon: sunIcon,
   });
 
-  wrapper.append(btnHome);
+  wrapper.append(btnHome, btnArchived);
   sidebar.append(wrapper, categories, btnTheme);
 
   return { sidebar, btnTheme };

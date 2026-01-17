@@ -15,15 +15,23 @@ export function rerenderNotes() {
 
       const { categories, filters, notes } = state.app;
 
+      let result = notes;
+
+      if (filters.archived) {
+        result = result.filter((note) => note.archived === filters.archived);
+      }
+
       const hasCategory =
         filters.categoryId !== null &&
         categories.some((cat) => cat.id === filters.categoryId);
 
-      const filteredNotes = hasCategory
-        ? notes.filter((note) => note.categoryId === filters.categoryId)
-        : notes;
+      if (hasCategory) {
+        result = result.filter(
+          (note) => note.categoryId === filters.categoryId,
+        );
+      }
 
-      filteredNotes.forEach((note) => {
+      result.forEach((note) => {
         const item = createdCard(note);
         notesEl.appendChild(item);
       });

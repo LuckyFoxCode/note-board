@@ -1,4 +1,5 @@
 import addSvg from './add.svg?raw';
+import archiveSvg from './archive.svg?raw';
 import folderSvg from './folder.svg?raw';
 import homeSvg from './home.svg?raw';
 import moonSvg from './moon.svg?raw';
@@ -7,6 +8,7 @@ import sunSvg from './sun.svg?raw';
 
 export const icons = {
   addIcon: addSvg,
+  archiveIcon: archiveSvg,
   folderIcon: folderSvg,
   homeIcon: homeSvg,
   moonIcon: moonSvg,
