@@ -8,6 +8,7 @@ export function renderSidebar(): {
   btnTheme: HTMLButtonElement;
 } {
   const homeIcon = createSvgIcon(icons.homeIcon, 'icon-home');
+  const searchIcon = createSvgIcon(icons.sunIcon, 'icon-search');
   const archiveIcon = createSvgIcon(icons.archiveIcon, 'icon-archive');
   const sunIcon = createSvgIcon(icons.sunIcon, 'icon-sun');
 
@@ -26,6 +27,14 @@ export function renderSidebar(): {
     title: 'Home',
     icon: homeIcon,
   });
+
+  const btnSearch = renderButton({
+    action: 'search-notes',
+    className: 'nb-sidebar__wrapper-btn',
+    title: 'Search',
+    icon: searchIcon,
+  });
+
   const btnArchived = renderButton({
     action: 'archived-notes',
     className: 'nb-sidebar__wrapper-btn',
@@ -41,7 +50,7 @@ export function renderSidebar(): {
     icon: sunIcon,
   });
 
-  wrapper.append(btnHome, btnArchived);
+  wrapper.append(btnHome, btnSearch, btnArchived);
   sidebar.append(wrapper, categories, btnTheme);
 
   return { sidebar, btnTheme };

@@ -12,6 +12,28 @@ export function bindSidebarEvents(root: HTMLElement) {
     if (!actionEl) return;
 
     switch (actionEl.dataset.action) {
+      case 'all-notes': {
+        setActive(root, actionEl);
+        state.app.filters = {
+          ...state.app.filters,
+          categoryId: null,
+          archived: false,
+        };
+        rerender.notes();
+        break;
+      }
+      case 'search-notes': {
+        setActive(root, actionEl);
+        // ...??
+        rerender.notes();
+        break;
+      }
+      case 'archived-notes': {
+        setActive(root, actionEl);
+        state.app.filters = { ...state.app.filters, archived: true };
+        rerender.notes();
+        break;
+      }
       case 'add-category': {
         const { form, input } = renderCategoryForm();
         const overlay = renderOverlayWithForm(form);
@@ -43,22 +65,6 @@ export function bindSidebarEvents(root: HTMLElement) {
           categoryId: id,
           archived: false,
         };
-        rerender.notes();
-        break;
-      }
-      case 'all-notes': {
-        setActive(root, actionEl);
-        state.app.filters = {
-          ...state.app.filters,
-          categoryId: null,
-          archived: false,
-        };
-        rerender.notes();
-        break;
-      }
-      case 'archived-notes': {
-        setActive(root, actionEl);
-        state.app.filters = { ...state.app.filters, archived: true };
         rerender.notes();
         break;
       }
