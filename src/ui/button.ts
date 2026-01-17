@@ -1,6 +1,6 @@
 interface ButtonProps {
-  id: string;
-  title: string;
+  id?: string;
+  title?: string;
   icon?: SVGSVGElement;
   action?: string;
   className?: string;
@@ -20,15 +20,17 @@ export function renderButton({
   button.type = type;
   button.dataset.id = id;
 
-  if (action) button.dataset.action = action;
-  if (className) button.classList.add(className);
-
   const titleBtn = document.createElement('span');
   titleBtn.classList.add('button__title');
-  titleBtn.textContent = title;
 
+  if (action) button.dataset.action = action;
+  if (className) button.classList.add(className);
   if (icon) button.append(icon);
-  button.append(titleBtn);
+
+  if (title) {
+    titleBtn.textContent = title;
+    button.append(titleBtn);
+  }
 
   return button;
 }

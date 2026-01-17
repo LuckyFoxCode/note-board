@@ -2,6 +2,7 @@ import { state } from '@/store';
 import { createCategoryItem } from './categoryItem';
 import { createSvgIcon } from '@/utils';
 import { icons } from '@/assets/icons';
+import { renderButton } from './button';
 
 export function createCategory(): HTMLDivElement {
   const categories = document.createElement('div');
@@ -9,13 +10,12 @@ export function createCategory(): HTMLDivElement {
 
   const addBtnIcon = createSvgIcon(icons.addIcon, 'icon-add');
 
-  const titleBtn = document.createElement('span');
-  titleBtn.textContent = 'Add category';
-
-  const addCategoryBtn = document.createElement('button');
-  addCategoryBtn.classList.add('nb-category__btn');
-  addCategoryBtn.type = 'button';
-  addCategoryBtn.dataset.action = 'add-category';
+  const addCategoryBtn = renderButton({
+    action: 'add-category',
+    className: 'nb-category__btn',
+    icon: addBtnIcon,
+    title: 'Add category',
+  });
 
   const categoryWrapper = document.createElement('div');
   categoryWrapper.classList.add('nb-category__wrapper');
@@ -32,9 +32,6 @@ export function createCategory(): HTMLDivElement {
   state.app.categories.forEach((cat) => {
     categoryList.appendChild(createCategoryItem(cat));
   });
-
-  addCategoryBtn.append(addBtnIcon);
-  state.ui.isOpenSidebar && addCategoryBtn.append(titleBtn);
 
   categoryWrapper.append(iconTitle, categoryTitle);
   categories.append(addCategoryBtn, categoryWrapper, categoryList);

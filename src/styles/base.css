@@ -40,13 +40,28 @@ ul {
 }
 
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   border-radius: var(--radius);
-  padding: 0.5rem 1rem;
+  box-shadow: var(--shadow);
+  padding: 0.5rem 0.25rem;
   outline: none;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s,
+    color 0.3s;
+}
+
+.button > span {
+  display: flex;
+  flex: 1;
 }
 
 .icon {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   color: var(--text-primary);
 }

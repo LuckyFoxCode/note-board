@@ -5,7 +5,7 @@ import { renderButton } from './button';
 
 export function renderSidebar(): {
   sidebar: HTMLElement;
-  themeBtn: HTMLButtonElement;
+  btnTheme: HTMLButtonElement;
 } {
   const homeIcon = createSvgIcon(icons.homeIcon, 'icon-home');
   const sunIcon = createSvgIcon(icons.sunIcon, 'icon-sun');
@@ -20,7 +20,6 @@ export function renderSidebar(): {
   wrapper.classList.add('nb-sidebar__wrapper');
 
   const btnHome = renderButton({
-    id: 'home',
     action: 'all-notes',
     className: 'nb-sidebar__wrapper-btn_home',
     title: 'Home',
@@ -29,13 +28,14 @@ export function renderSidebar(): {
 
   const categories = createCategory();
 
-  const themeBtn = document.createElement('button');
-  themeBtn.classList.add('nb-theme-btn');
-  themeBtn.type = 'button';
+  const btnTheme = renderButton({
+    action: 'change-theme',
+    className: 'nb-theme-btn',
+    icon: sunIcon,
+  });
 
   wrapper.append(btnHome);
-  themeBtn.append(sunIcon);
-  sidebar.append(wrapper, categories, themeBtn);
+  sidebar.append(wrapper, categories, btnTheme);
 
-  return { sidebar, themeBtn };
+  return { sidebar, btnTheme };
 }
