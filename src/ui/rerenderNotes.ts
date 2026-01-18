@@ -31,6 +31,25 @@ export function rerenderNotes() {
         );
       }
 
+      if (filters.search) {
+        console.log('---rerenderNotes---', filters.search);
+        const notesTitleIncludeSearch = result.filter((notes) =>
+          notes.title.includes(filters.search),
+        );
+        const notesTagsIncludeSearch = result.filter((note) =>
+          note.tags.some((tag) =>
+            tag.name.toLowerCase().includes(filters.search.toLowerCase()),
+          ),
+        );
+
+        console.log('---Tags---', notesTagsIncludeSearch);
+        console.log('---Title---', notesTitleIncludeSearch);
+
+        result = result.filter((note) =>
+          note.title.toLowerCase().includes(filters.search.toLowerCase()),
+        );
+      }
+
       result.forEach((note) => {
         const item = createdCard(note);
         notesEl.appendChild(item);
