@@ -1,4 +1,9 @@
-import { renderCategoryForm, renderOverlayWithForm, rerender } from '@/ui';
+import {
+  renderCategoryForm,
+  renderOverlayWithForm,
+  renderSearchOverlay,
+  rerender,
+} from '@/ui';
 import { bindCategoryFormEvents } from './categoryFormEvents';
 import { removeCategory, state } from '@/store';
 import { setActive } from '@/utils';
@@ -24,8 +29,10 @@ export function bindSidebarEvents(root: HTMLElement) {
       }
       case 'search-notes': {
         setActive(root, actionEl);
-        // ...??
-        rerender.notes();
+        const { overlay, searchInput } = renderSearchOverlay();
+
+        document.body.append(overlay);
+        searchInput.focus();
         break;
       }
       case 'archived-notes': {

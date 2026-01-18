@@ -9,4 +9,5 @@ export * from './overlay';
 export * from './rerender';
 export * from './rerenderCategories';
 export * from './rerenderNotes';
+export * from './searchOverlay';
 export * from './sidebar';
