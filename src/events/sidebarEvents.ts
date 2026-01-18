@@ -7,6 +7,7 @@ import {
 import { bindCategoryFormEvents } from './categoryFormEvents';
 import { removeCategory, state } from '@/store';
 import { setActive } from '@/utils';
+import { bindSearchNotesEvents } from './searchNotesEvents';
 
 export function bindSidebarEvents(root: HTMLElement) {
   root.addEventListener('click', (event) => {
@@ -31,6 +32,7 @@ export function bindSidebarEvents(root: HTMLElement) {
         setActive(root, actionEl);
         const { overlay, searchInput } = renderSearchOverlay();
 
+        bindSearchNotesEvents(searchInput, overlay);
         document.body.append(overlay);
         searchInput.focus();
         break;

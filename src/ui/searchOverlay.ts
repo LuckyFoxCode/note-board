@@ -9,6 +9,7 @@ export function renderSearchOverlay(): {
   searchInput.classList.add('nb-search-overlay__input');
   searchInput.type = 'text';
   searchInput.name = 'search-notes';
+  searchInput.autocomplete = 'off';
   searchInput.placeholder = 'Search notes at title or tag';
 
   overlay.append(searchInput);
