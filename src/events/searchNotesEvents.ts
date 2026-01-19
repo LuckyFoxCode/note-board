@@ -5,7 +5,12 @@ export function bindSearchNotesEvents(
   input: HTMLInputElement,
   overlay: HTMLDivElement,
 ) {
-  input.addEventListener('keydown', (event: KeyboardEvent) => {
+  input.addEventListener('input', () => {
+    state.app.filters = { ...state.app.filters, search: input.value.trim() };
+    rerender.notes();
+  });
+
+  input.addEventListener('keyup', (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
       input.value = '';
       state.app.filters = { ...state.app.filters, search: '' };
@@ -13,13 +18,5 @@ export function bindSearchNotesEvents(
       overlay.remove();
       return;
     }
-
-    state.app.filters = { ...state.app.filters, search: input.value.trim() };
-    console.log(
-      '===searchNotesEvents===',
-      input.value,
-      state.app.filters.search,
-    );
-    rerender.notes();
   });
 }
