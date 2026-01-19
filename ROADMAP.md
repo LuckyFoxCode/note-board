@@ -47,7 +47,7 @@ UI ничего не решает, только отображает.
 ## Phase E — Filtering, Search & Sorting
 
 - [x] Step 18 — Filter by category
-- [ ] Step 19 — Search by title & tags
+- [x] Step 19 — Search by title & tags
 - [x] Step 20 — Archive filter
 
 This mirrors real apps (Notion, Gmail, Trello).
