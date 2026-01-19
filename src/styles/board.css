@@ -24,6 +24,74 @@
   gap: 0.5rem;
 }
 
+.nb-sort {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 0.5rem 1rem;
+}
+
+.nb-sort__select {
+  font-size: 1rem;
+  font-family: var(--font-secondary);
+  color: var(--text-secondary);
+  background-color: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.25rem 0.5rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.nb-sort__select:focus {
+  border-color: var(--accent);
+}
+
+.nb-sort__select-option {
+  background-color: var(--bg);
+}
+
+.nb-sort__pinned {
+  position: relative;
+  font-size: 1rem;
+  font-family: var(--font-secondary);
+  display: flex;
+  align-items: center;
+  column-gap: 0.25rem;
+  color: var(--text-secondary);
+}
+
+.nb-sort__pinned-checkbox {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  z-index: -999;
+  opacity: 0;
+}
+
+.nb-sort__pinned-customCheckbox {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--border);
+  background-color: var(--accent-soft);
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+  cursor: pointer;
+}
+
+.nb-sort__pinned-customCheckbox {
+  border-color: var(--accent);
+}
+
+.nb-sort__pinned-customCheckbox {
+  background-color: var(--color-primary);
+}
+
 /* MEDIA */
 @media (min-width: 540px) {
   .nb-board {

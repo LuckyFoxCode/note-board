@@ -1,8 +1,11 @@
 import { createdCard } from './card';
 import { state } from '@/store';
+import { renderSorting } from './sort';
 
 export function renderBoard(): HTMLElement {
   const { notes, filters } = state.app;
+  const sort = renderSorting();
+
   const board = document.createElement('main');
   board.classList.add('nb-board');
   board.dataset.role = 'main';
@@ -16,7 +19,7 @@ export function renderBoard(): HTMLElement {
   titleBoard.textContent = 'Welcome to NoteBoard!';
 
   headerBoard.append(titleBoard);
-  board.prepend(headerBoard);
+  // board.prepend(headerBoard);
 
   const wrapperCard = document.createElement('div');
   wrapperCard.classList.add('nb-board__wrapper-cards');
@@ -25,7 +28,8 @@ export function renderBoard(): HTMLElement {
     ? notes.filter((note) => note.categoryId === filters.categoryId)
     : notes
   ).forEach((note) => wrapperCard.append(createdCard(note)));
-  board.append(wrapperCard);
+
+  board.append(headerBoard, sort, wrapperCard);
 
   return board;
 }
