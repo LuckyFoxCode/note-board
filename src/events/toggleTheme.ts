@@ -1,7 +1,12 @@
+import { icons } from '@/assets/icons';
+import { createSvgIcon } from '@/utils';
+
 export function bindToggleTheme(btn: HTMLButtonElement) {
   btn.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    btn.textContent =
-      document.body.classList.contains('dark') === true ? '🌙' : '☀️';
+    const isDark = document.body.classList.toggle('dark');
+
+    btn.replaceChildren(
+      createSvgIcon(isDark ? icons.moonIcon : icons.sunIcon, 'icon-sun'),
+    );
   });
 }

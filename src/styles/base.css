@@ -38,3 +38,30 @@ ul {
   padding: 0;
   margin: 0;
 }
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 0.5rem 0.25rem;
+  outline: none;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s,
+    color 0.3s;
+}
+
+.button > span {
+  display: flex;
+  flex: 1;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  color: var(--text-primary);
+}

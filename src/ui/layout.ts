@@ -7,7 +7,7 @@ export function renderLayout(): {
 
   themeBtn: HTMLButtonElement;
 } {
-  const { sidebar, themeBtn } = renderSidebar();
+  const { sidebar, btnTheme: themeBtn } = renderSidebar();
   const board = renderBoard();
 
   return { sidebar, board, themeBtn };

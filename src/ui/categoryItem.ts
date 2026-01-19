@@ -1,5 +1,5 @@
 import { icons } from '@/assets/icons';
-
+import { state } from '@/store';
 import type { Category } from '@/types';
 import { createSvgIcon } from '@/utils';
 
@@ -7,6 +7,7 @@ export function createCategoryItem(cat: Category): HTMLLIElement {
   const categoryItem = document.createElement('li');
   categoryItem.classList.add('nb-category__item');
   categoryItem.dataset.id = cat.id;
+  categoryItem.dataset.action = 'filter-category';
   categoryItem.tabIndex = 1;
 
   const itemPoint = document.createElement('span');
@@ -31,7 +32,7 @@ export function createCategoryItem(cat: Category): HTMLLIElement {
 
   itemRemoveBtn.append(removeIcon);
   itemWrapper.append(itemTitle, itemRemoveBtn);
-  categoryItem.append(itemWrapper);
+  state.ui.isOpenSidebar && categoryItem.append(itemWrapper);
 
   return categoryItem;
 }

@@ -46,15 +46,15 @@ UI ничего не решает, только отображает.
 
 ## Phase E — Filtering, Search & Sorting
 
-- [ ] Step 18 — Filter by category
-- [ ] Step 19 — Search by title & tags
-- [ ] Step 20 — Sorting (date / pinned)
-- [ ] Step 21 — Archive filter
+- [x] Step 18 — Filter by category
+- [x] Step 19 — Search by title & tags
+- [x] Step 20 — Archive filter
 
 This mirrors real apps (Notion, Gmail, Trello).
 
 ## Phase F — UX Enhancements
 
+- [ ] Step 21 — Sorting (date / pinned)
 - [ ] Step 22 — Pin / unpin notes
 - [ ] Step 23 — Archive / restore notes
 - [ ] Step 24 — Modal editor (create/edit)

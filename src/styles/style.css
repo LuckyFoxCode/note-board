@@ -3,7 +3,8 @@
 
 @import './base.css';
 @import './theme.css';
-@import './layout.css';
+@import './sidebar.css';
+@import './board.css';
 @import './card.css';
 @import './category.css';
 @import './modals.css';
@@ -23,4 +24,9 @@ body {
   overflow: hidden;
   margin: 0 auto;
   background-color: var(--bg-muted);
+}
+
+.active {
+  background-color: var(--color-primary);
+  transition: background-color 0.3s;
 }

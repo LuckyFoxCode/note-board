@@ -1,4 +1,5 @@
 export * from './board';
+export * from './button';
 export * from './card';
 export * from './category';
 export * from './categoryItem';
@@ -7,4 +8,6 @@ export * from './layout';
 export * from './overlay';
 export * from './rerender';
 export * from './rerenderCategories';
+export * from './rerenderNotes';
+export * from './searchOverlay';
 export * from './sidebar';

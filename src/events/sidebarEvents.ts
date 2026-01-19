@@ -1,6 +1,13 @@
-import { renderCategoryForm, renderOverlayWithForm, rerender } from '@/ui';
+import {
+  renderCategoryForm,
+  renderOverlayWithForm,
+  renderSearchOverlay,
+  rerender,
+} from '@/ui';
 import { bindCategoryFormEvents } from './categoryFormEvents';
 import { removeCategory, state } from '@/store';
+import { setActive } from '@/utils';
+import { bindSearchNotesEvents } from './searchNotesEvents';
 
 export function bindSidebarEvents(root: HTMLElement) {
   root.addEventListener('click', (event) => {
@@ -11,6 +18,31 @@ export function bindSidebarEvents(root: HTMLElement) {
     if (!actionEl) return;
 
     switch (actionEl.dataset.action) {
+      case 'all-notes': {
+        setActive(root, actionEl);
+        state.app.filters = {
+          ...state.app.filters,
+          categoryId: null,
+          archived: false,
+        };
+        rerender.notes();
+        break;
+      }
+      case 'search-notes': {
+        setActive(root, actionEl);
+        const { overlay, searchInput } = renderSearchOverlay();
+
+        bindSearchNotesEvents(searchInput, overlay);
+        document.body.append(overlay);
+        searchInput.focus();
+        break;
+      }
+      case 'archived-notes': {
+        setActive(root, actionEl);
+        state.app.filters = { ...state.app.filters, archived: true };
+        rerender.notes();
+        break;
+      }
       case 'add-category': {
         const { form, input } = renderCategoryForm();
         const overlay = renderOverlayWithForm(form);
@@ -26,6 +58,23 @@ export function bindSidebarEvents(root: HTMLElement) {
 
         state.app = removeCategory(state.app, id);
         rerender.categories();
+        rerender.notes();
+        break;
+      }
+      case 'filter-category': {
+        const id = actionEl.dataset.id;
+        if (!id) return;
+
+        const categoryItem = actionEl.closest<HTMLLIElement>('li');
+        if (!categoryItem) return;
+
+        setActive(root, categoryItem);
+        state.app.filters = {
+          ...state.app.filters,
+          categoryId: id,
+          archived: false,
+        };
+        rerender.notes();
         break;
       }
     }

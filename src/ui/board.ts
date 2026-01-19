@@ -1,7 +1,8 @@
-import { cards } from '@/consts';
 import { createdCard } from './card';
+import { state } from '@/store';
 
 export function renderBoard(): HTMLElement {
+  const { notes, filters } = state.app;
   const board = document.createElement('main');
   board.classList.add('nb-board');
   board.dataset.role = 'main';
@@ -18,9 +19,12 @@ export function renderBoard(): HTMLElement {
   board.prepend(headerBoard);
 
   const wrapperCard = document.createElement('div');
-  wrapperCard.classList.add('nb-board__wrapper-card');
+  wrapperCard.classList.add('nb-board__wrapper-cards');
 
-  cards.forEach((note) => wrapperCard.append(createdCard(note)));
+  (filters.categoryId !== null
+    ? notes.filter((note) => note.categoryId === filters.categoryId)
+    : notes
+  ).forEach((note) => wrapperCard.append(createdCard(note)));
   board.append(wrapperCard);
 
   return board;

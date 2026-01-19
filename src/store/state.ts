@@ -19,5 +19,6 @@ export const state: RootState = {
   },
   ui: {
     theme: 'light',
+    isOpenSidebar: true,
   },
 };
