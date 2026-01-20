@@ -43,7 +43,12 @@
   border-radius: var(--radius);
   padding: 0.25rem 0.5rem;
   outline: none;
+  cursor: pointer;
   transition: border-color 0.3s;
+}
+
+.nb-sort__select:hover {
+  border-color: var(--color-primary);
 }
 
 .nb-sort__select:focus {
@@ -66,10 +71,8 @@
 
 .nb-sort__pinned-checkbox {
   position: absolute;
-  top: 0%;
-  left: 0;
-  z-index: -999;
   opacity: 0;
+  pointer-events: none;
 }
 
 .nb-sort__pinned-customCheckbox {
@@ -84,11 +87,11 @@
   cursor: pointer;
 }
 
-.nb-sort__pinned-customCheckbox {
+.nb-sort__pinned-checkbox:focus + .nb-sort__pinned-customCheckbox {
   border-color: var(--accent);
 }
 
-.nb-sort__pinned-customCheckbox {
+.nb-sort__pinned-checkbox:checked + .nb-sort__pinned-customCheckbox {
   background-color: var(--color-primary);
 }
 

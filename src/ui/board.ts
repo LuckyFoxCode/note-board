@@ -19,7 +19,6 @@ export function renderBoard(): HTMLElement {
   titleBoard.textContent = 'Welcome to NoteBoard!';
 
   headerBoard.append(titleBoard);
-  // board.prepend(headerBoard);
 
   const wrapperCard = document.createElement('div');
   wrapperCard.classList.add('nb-board__wrapper-cards');

@@ -1,22 +1,25 @@
 export function renderSorting(): HTMLElement {
-  const sortBy = [
+  type SortOption = {
+    value: 'default' | 'date_desc' | 'date_asc';
+    label: string;
+    disabled?: boolean;
+    default?: boolean;
+  };
+
+  const SORT_OPTIONS: SortOption[] = [
     {
-      checked: true,
       value: 'default',
-      name: 'Sort by Date',
+      label: 'Default order',
       disabled: true,
+      default: true,
     },
     {
-      checked: false,
-      value: 'new date',
-      name: 'New Date',
-      disabled: false,
+      value: 'date_desc',
+      label: 'Newest first',
     },
     {
-      checked: false,
-      value: 'old date',
-      name: 'Old Date',
-      disabled: false,
+      value: 'date_asc',
+      label: 'Oldest first',
     },
   ];
 
@@ -26,14 +29,18 @@ export function renderSorting(): HTMLElement {
   const select = document.createElement('select');
   select.classList.add('nb-sort__select');
   select.name = 'sort-notes';
+  select.setAttribute('aria-label', 'Sorn notes by date');
 
-  sortBy.forEach((variant) => {
+  SORT_OPTIONS.forEach((variant) => {
     const option = document.createElement('option');
     option.classList.add('nb-sort__select-option');
     option.value = variant.value;
-    option.textContent = variant.name;
-    option.defaultSelected = variant.checked;
-    option.disabled = variant.disabled;
+    option.textContent = variant.label;
+
+    if (variant.default) {
+      option.defaultSelected = true;
+      option.disabled = true;
+    }
 
     select.append(option);
   });
@@ -46,9 +53,11 @@ export function renderSorting(): HTMLElement {
   pinnedCheckbox.classList.add('nb-sort__pinned-checkbox');
   pinnedCheckbox.type = 'checkbox';
   pinnedCheckbox.name = 'pinned-notes';
+  pinnedCheckbox.id = 'pinned-only';
 
   const customCheckbox = document.createElement('div');
   customCheckbox.classList.add('nb-sort__pinned-customCheckbox');
+  customCheckbox.setAttribute('aria-hidden', 'true');
 
   pinned.append(pinnedCheckbox, customCheckbox);
   sort.append(select, pinned);
