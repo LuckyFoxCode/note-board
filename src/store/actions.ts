@@ -68,6 +68,17 @@ export function addNote(state: AppState, payload: CreateNotePayload): AppState {
   };
 }
 
+export function togglePinnedNotes(state: AppState, payload: string): AppState {
+  const updateAt = new Date().toISOString();
+
+  return {
+    ...state,
+    notes: state.notes.map((note) =>
+      note.id === payload ? { ...note, pinned: !note.pinned, updateAt } : note,
+    ),
+  };
+}
+
 export function updateNote(
   state: AppState,
   payload: UpdateNotePayload,

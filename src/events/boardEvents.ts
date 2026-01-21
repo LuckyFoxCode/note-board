@@ -1,7 +1,19 @@
-import { state } from '@/store';
+import { state, togglePinnedNotes } from '@/store';
 import { rerender } from '@/ui';
 
 export function bindBoardEvents(root: HTMLElement) {
+  root.addEventListener('dblclick', (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+
+    if (target.matches('.nb-note-card')) {
+      const id = target.dataset.noteId;
+      if (!id) return;
+
+      state.app = togglePinnedNotes(state.app, id);
+      rerender.notes();
+    }
+  });
+
   root.addEventListener('change', (event) => {
     const target = event.target as HTMLElement;
 
