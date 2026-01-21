@@ -44,6 +44,10 @@ export function rerenderNotes() {
         });
       }
 
+      if (filters.pinnedOnly) {
+        result = result.filter((note) => note.pinned);
+      }
+
       if (filters.sortBy === 'date_desc') {
         result.sort(
           (a, b) =>

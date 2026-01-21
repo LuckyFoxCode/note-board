@@ -29,7 +29,6 @@ export function renderSorting(): HTMLElement {
   const select = document.createElement('select');
   select.classList.add('nb-sort__select');
   select.name = 'sort-notes';
-  select.dataset.action = 'sort-date';
   select.setAttribute('aria-label', 'Sort notes by date');
 
   SORT_OPTIONS.forEach((variant) => {
