@@ -2,7 +2,7 @@ import { icons } from '@/assets/icons';
 import type { Note } from '@/types';
 import { createSvgIcon } from '@/utils';
 
-export function createdCard(note: Note) {
+export function createdCard(note: Note, categoryColor: string) {
   const { id, createdAt, title: titleNote, excerpt, tags, pinned } = note;
 
   const formattedDate = new Date(createdAt).toLocaleDateString('en-US', {
@@ -23,7 +23,7 @@ export function createdCard(note: Note) {
 
   const point = document.createElement('div');
   point.classList.add('nb-note-card__head-pointer');
-  point.style.backgroundColor = '#8e54e9';
+  point.style.backgroundColor = categoryColor;
 
   const date = document.createElement('span');
   date.classList.add('nb-note-card__head-date');

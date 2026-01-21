@@ -9,7 +9,7 @@ export interface RootState {
 export const state: RootState = {
   app: {
     notes: [...cards],
-    categories: [{ id: '1', color: '#fff', title: '1' }],
+    categories: [{ id: '1', color: '#fcf', title: 'hobby' }],
     filters: {
       categoryId: null,
       search: '',

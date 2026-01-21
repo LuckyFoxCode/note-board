@@ -1,5 +1,5 @@
 import { state } from '@/store';
-import { withElement } from '@/utils';
+import { sortNotes, withElement } from '@/utils';
 import { createdCard } from './card';
 
 export function rerenderNotes() {
@@ -44,21 +44,7 @@ export function rerenderNotes() {
         });
       }
 
-      if (filters.pinnedOnly) {
-        result = result.filter((note) => note.pinned);
-      }
-
-      if (filters.sortBy === 'date_desc') {
-        result.sort(
-          (a, b) =>
-            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-        );
-      } else if (filters.sortBy === 'date_asc') {
-        result.sort(
-          (a, b) =>
-            new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime(),
-        );
-      }
+      result = sortNotes(result, filters.sortBy, filters.pinnedOnly);
 
       result.forEach((note) => {
         const item = createdCard(note);

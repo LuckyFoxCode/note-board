@@ -26,7 +26,12 @@ export function renderBoard(): HTMLElement {
   (filters.categoryId !== null
     ? notes.filter((note) => note.categoryId === filters.categoryId)
     : notes
-  ).forEach((note) => wrapperCard.append(createdCard(note)));
+  ).forEach((note) => {
+    const category = state.app.categories.find(
+      (cat) => cat.id === note.categoryId,
+    );
+    wrapperCard.append(createdCard(note, category?.color ?? '#ccc'));
+  });
 
   board.append(headerBoard, sort, wrapperCard);
 

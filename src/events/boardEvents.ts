@@ -5,13 +5,14 @@ export function bindBoardEvents(root: HTMLElement) {
   root.addEventListener('dblclick', (event: MouseEvent) => {
     const target = event.target as HTMLElement;
 
-    if (target.matches('.nb-note-card')) {
-      const id = target.dataset.noteId;
-      if (!id) return;
+    const card = target.closest('.nb-note-card') as HTMLElement | null;
+    if (!card) return;
 
-      state.app = togglePinnedNotes(state.app, id);
-      rerender.notes();
-    }
+    const id = card.dataset.noteId;
+    if (!id) return;
+
+    state.app = togglePinnedNotes(state.app, id);
+    rerender.notes();
   });
 
   root.addEventListener('change', (event) => {
