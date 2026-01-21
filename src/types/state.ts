@@ -6,8 +6,9 @@ export interface AppState {
   filters: {
     categoryId: string | null;
     search: string;
-    sortBy: 'date' | 'pinned';
+    sortBy: 'default' | 'date_desc' | 'date_asc';
     archived: boolean;
+    pinnedOnly: boolean;
   };
 }
 

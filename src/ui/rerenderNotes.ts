@@ -44,6 +44,18 @@ export function rerenderNotes() {
         });
       }
 
+      if (filters.sortBy === 'date_desc') {
+        result.sort(
+          (a, b) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+        );
+      } else if (filters.sortBy === 'date_asc') {
+        result.sort(
+          (a, b) =>
+            new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime(),
+        );
+      }
+
       result.forEach((note) => {
         const item = createdCard(note);
         notesEl.appendChild(item);

@@ -13,8 +13,9 @@ export const state: RootState = {
     filters: {
       categoryId: null,
       search: '',
+      sortBy: 'default',
       archived: false,
-      sortBy: 'date',
+      pinnedOnly: false,
     },
   },
   ui: {

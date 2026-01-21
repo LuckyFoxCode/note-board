@@ -1,3 +1,4 @@
+export * from './boardEvents';
 export * from './categoryFormEvents';
 export * from './searchNotesEvents';
 export * from './sidebarEvents';

@@ -1,4 +1,4 @@
-import { bindSidebarEvents, bindToggleTheme } from '@/events';
+import { bindBoardEvents, bindSidebarEvents, bindToggleTheme } from '@/events';
 import { renderLayout } from '@/ui';
 
 export function initApp() {
@@ -9,6 +9,7 @@ export function initApp() {
 
   bindToggleTheme(themeBtn);
   bindSidebarEvents(sidebar);
+  bindBoardEvents(board);
 
   root.append(sidebar, board);
 }

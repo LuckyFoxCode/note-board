@@ -3,7 +3,7 @@ export function renderSorting(): HTMLElement {
     value: 'default' | 'date_desc' | 'date_asc';
     label: string;
     disabled?: boolean;
-    default?: boolean;
+    selected?: boolean;
   };
 
   const SORT_OPTIONS: SortOption[] = [
@@ -11,7 +11,7 @@ export function renderSorting(): HTMLElement {
       value: 'default',
       label: 'Default order',
       disabled: true,
-      default: true,
+      selected: true,
     },
     {
       value: 'date_desc',
@@ -29,7 +29,8 @@ export function renderSorting(): HTMLElement {
   const select = document.createElement('select');
   select.classList.add('nb-sort__select');
   select.name = 'sort-notes';
-  select.setAttribute('aria-label', 'Sorn notes by date');
+  select.dataset.action = 'sort-date';
+  select.setAttribute('aria-label', 'Sort notes by date');
 
   SORT_OPTIONS.forEach((variant) => {
     const option = document.createElement('option');
@@ -37,7 +38,7 @@ export function renderSorting(): HTMLElement {
     option.value = variant.value;
     option.textContent = variant.label;
 
-    if (variant.default) {
+    if (variant.selected) {
       option.defaultSelected = true;
       option.disabled = true;
     }
