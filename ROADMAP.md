@@ -54,7 +54,7 @@ This mirrors real apps (Notion, Gmail, Trello).
 
 ## Phase F — UX Enhancements
 
-- [ ] Step 21 — Sorting (date / pinned)
+- [x] Step 21 — Sorting (date / pinned)
 - [ ] Step 22 — Pin / unpin notes
 - [ ] Step 23 — Archive / restore notes
 - [ ] Step 24 — Modal editor (create/edit)
