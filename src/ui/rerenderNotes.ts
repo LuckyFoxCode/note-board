@@ -17,37 +17,40 @@ export function rerenderNotes() {
 
       let result = notes;
 
-      if (filters.archived) {
-        result = result.filter((note) => note.archived === filters.archived);
-      }
+      if (state.ui.boardView === 'default') {
+        result = result.filter((note) => !note.archived);
 
-      const hasCategory =
-        filters.categoryId !== null &&
-        categories.some((cat) => cat.id === filters.categoryId);
+        const hasCategory =
+          filters.categoryId !== null &&
+          categories.some((cat) => cat.id === filters.categoryId);
 
-      if (hasCategory) {
-        result = result.filter(
-          (note) => note.categoryId === filters.categoryId,
-        );
-      }
-
-      if (filters.search) {
-        result = result.filter((note) => {
-          const inTitle = note.title
-            .toLowerCase()
-            .includes(filters.search.toLowerCase());
-          const inTags = note.tags.some((tag) =>
-            tag.name.toLowerCase().includes(filters.search.toLowerCase()),
+        if (hasCategory) {
+          result = result.filter(
+            (note) => note.categoryId === filters.categoryId,
           );
+        }
 
-          return inTitle || inTags;
-        });
+        if (filters.search) {
+          result = result.filter((note) => {
+            const inTitle = note.title
+              .toLowerCase()
+              .includes(filters.search.toLowerCase());
+            const inTags = note.tags.some((tag) =>
+              tag.name.toLowerCase().includes(filters.search.toLowerCase()),
+            );
+
+            return inTitle || inTags;
+          });
+        }
       }
 
       result = sortNotes(result, filters.sortBy, filters.pinnedOnly);
 
       result.forEach((note) => {
-        const item = createdCard(note);
+        const category = state.app.categories.find(
+          (cat) => cat.id === note.categoryId,
+        );
+        const item = createdCard(note, category?.color ?? '#ccc');
         notesEl.appendChild(item);
       });
     });

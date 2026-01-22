@@ -23,10 +23,20 @@ export function renderBoard(): HTMLElement {
   const wrapperCard = document.createElement('div');
   wrapperCard.classList.add('nb-board__wrapper-cards');
 
-  (filters.categoryId !== null
-    ? notes.filter((note) => note.categoryId === filters.categoryId)
-    : notes
-  ).forEach((note) => {
+  let filteredNotes = notes;
+
+  if (state.ui.boardView === 'default')
+    filteredNotes = filteredNotes.filter((note) => !note.archived);
+
+  if (state.ui.boardView === 'archive')
+    filteredNotes = filteredNotes.filter((note) => note.archived);
+
+  if (filters.categoryId)
+    filteredNotes = filteredNotes.filter(
+      (n) => n.categoryId === filters.categoryId,
+    );
+
+  filteredNotes.forEach((note) => {
     const category = state.app.categories.find(
       (cat) => cat.id === note.categoryId,
     );

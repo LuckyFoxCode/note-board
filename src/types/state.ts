@@ -15,4 +15,5 @@ export interface AppState {
 export interface UI {
   theme: 'light' | 'dark';
   isOpenSidebar: boolean;
+  boardView: 'default' | 'archive';
 }

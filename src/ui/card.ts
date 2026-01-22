@@ -3,7 +3,15 @@ import type { Note } from '@/types';
 import { createSvgIcon } from '@/utils';
 
 export function createdCard(note: Note, categoryColor: string) {
-  const { id, createdAt, title: titleNote, excerpt, tags, pinned } = note;
+  const {
+    id,
+    createdAt,
+    title: titleNote,
+    excerpt,
+    tags,
+    pinned,
+    archived,
+  } = note;
 
   const formattedDate = new Date(createdAt).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -30,6 +38,7 @@ export function createdCard(note: Note, categoryColor: string) {
   date.textContent = formattedDate;
 
   const pinnedIcon = createSvgIcon(icons.pinnedIcon, 'icon-pinned');
+  const archvedIcon = createSvgIcon(icons.archiveIcon, 'icon-archived');
 
   const body = document.createElement('div');
   body.classList.add('nb-note-card__body');
@@ -58,6 +67,7 @@ export function createdCard(note: Note, categoryColor: string) {
 
   header.append(point, date);
   pinned && header.append(pinnedIcon);
+  archived && header.append(archvedIcon);
   body.append(title, description);
   card.append(header, body, footer);
 
