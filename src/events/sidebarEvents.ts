@@ -25,6 +25,7 @@ export function bindSidebarEvents(root: HTMLElement) {
           categoryId: null,
           archived: false,
         };
+        state.ui.boardView = 'default';
         rerender.notes();
         break;
       }
@@ -40,6 +41,7 @@ export function bindSidebarEvents(root: HTMLElement) {
       case 'archived-notes': {
         setActive(root, actionEl);
         state.app.filters = { ...state.app.filters, archived: true };
+        state.ui.boardView = 'archive';
         rerender.notes();
         break;
       }
@@ -74,6 +76,7 @@ export function bindSidebarEvents(root: HTMLElement) {
           categoryId: id,
           archived: false,
         };
+        state.ui.boardView = 'default';
         rerender.notes();
         break;
       }

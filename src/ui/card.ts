@@ -38,7 +38,9 @@ export function createdCard(note: Note, categoryColor: string) {
   date.textContent = formattedDate;
 
   const pinnedIcon = createSvgIcon(icons.pinnedIcon, 'icon-pinned');
-  const archvedIcon = createSvgIcon(icons.archiveIcon, 'icon-archived');
+  const archivedIcon = createSvgIcon(icons.archiveIcon, 'icon-archived');
+  archivedIcon.dataset.noteId = id;
+  archived ? (archivedIcon.style.color = '#f291b0') : '';
 
   const body = document.createElement('div');
   body.classList.add('nb-note-card__body');
@@ -65,9 +67,8 @@ export function createdCard(note: Note, categoryColor: string) {
   });
   footer.append(tagList);
 
-  header.append(point, date);
+  header.append(point, date, archivedIcon);
   pinned && header.append(pinnedIcon);
-  archived && header.append(archvedIcon);
   body.append(title, description);
   card.append(header, body, footer);
 

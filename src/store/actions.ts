@@ -68,6 +68,22 @@ export function addNote(state: AppState, payload: CreateNotePayload): AppState {
   };
 }
 
+export function toggleArchivedNotes(
+  state: AppState,
+  payload: string,
+): AppState {
+  const updatedAt = new Date().toISOString();
+
+  return {
+    ...state,
+    notes: state.notes.map((note) =>
+      note.id === payload
+        ? { ...note, archived: !note.archived, updatedAt }
+        : note,
+    ),
+  };
+}
+
 export function togglePinnedNotes(state: AppState, payload: string): AppState {
   const updatedAt = new Date().toISOString();
 

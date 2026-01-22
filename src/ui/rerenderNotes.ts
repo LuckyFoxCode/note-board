@@ -44,6 +44,10 @@ export function rerenderNotes() {
         }
       }
 
+      if (state.ui.boardView === 'archive') {
+        result = result.filter((note) => note.archived);
+      }
+
       result = sortNotes(result, filters.sortBy, filters.pinnedOnly);
 
       result.forEach((note) => {

@@ -1,7 +1,21 @@
-import { state, togglePinnedNotes } from '@/store';
+import { state, toggleArchivedNotes, togglePinnedNotes } from '@/store';
 import { rerender } from '@/ui';
 
 export function bindBoardEvents(root: HTMLElement) {
+  root.addEventListener('click', (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+
+    const archiveIcon = target.closest(
+      '.icon-archived',
+    ) as SVGSVGElement | null;
+    if (!archiveIcon) return;
+
+    const id = archiveIcon.dataset.noteId;
+    if (!id) return;
+
+    state.app = toggleArchivedNotes(state.app, id);
+    rerender.notes();
+  });
   root.addEventListener('dblclick', (event: MouseEvent) => {
     const target = event.target as HTMLElement;
 
