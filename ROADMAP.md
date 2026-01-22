@@ -56,7 +56,7 @@ This mirrors real apps (Notion, Gmail, Trello).
 
 - [x] Step 21 — Sorting (date / pinned)
 - [x] Step 22 — Pin / unpin notes
-- [ ] Step 23 — Archive / restore notes
+- [x] Step 23 — Archive / restore notes
 - [ ] Step 24 — Modal editor (create/edit)
 - [ ] Step 25 — Mini statistics panel
 
