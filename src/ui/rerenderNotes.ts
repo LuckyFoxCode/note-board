@@ -6,14 +6,23 @@ export function rerenderNotes() {
   const board = document.querySelector<HTMLElement>('[data-mount="board"]');
 
   withElement(board, (boardEl) => {
-    const notes = boardEl.querySelector<HTMLDivElement>(
+    const notesCard = boardEl.querySelector<HTMLDivElement>(
       '.nb-board__wrapper-cards',
     );
+    const { categories, filters, notes } = state.app;
 
-    withElement(notes, (notesEl) => {
+    const addCardBtn = boardEl.querySelector<HTMLButtonElement>(
+      '.nb-board__add-card',
+    );
+
+    console.log(addCardBtn?.formTarget);
+
+    if (!addCardBtn) return;
+
+    addCardBtn.style.display = filters.categoryId === null ? 'none' : '';
+
+    withElement(notesCard, (notesEl) => {
       notesEl.innerHTML = '';
-
-      const { categories, filters, notes } = state.app;
 
       let result = notes;
 

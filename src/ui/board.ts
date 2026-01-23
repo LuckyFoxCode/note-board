@@ -1,5 +1,6 @@
-import { createdCard } from './card';
 import { state } from '@/store';
+import { renderButton } from './button';
+import { createdCard } from './card';
 import { renderSorting } from './sort';
 
 export function renderBoard(): HTMLElement {
@@ -19,6 +20,12 @@ export function renderBoard(): HTMLElement {
   titleBoard.textContent = 'Welcome to NoteBoard!';
 
   headerBoard.append(titleBoard);
+
+  const addCardBtn = renderButton({
+    title: 'Add card',
+    className: 'nb-board__add-card',
+  });
+  addCardBtn.style.display = 'none';
 
   const wrapperCard = document.createElement('div');
   wrapperCard.classList.add('nb-board__wrapper-cards');
@@ -43,7 +50,7 @@ export function renderBoard(): HTMLElement {
     wrapperCard.append(createdCard(note, category?.color ?? '#ccc'));
   });
 
-  board.append(headerBoard, sort, wrapperCard);
+  board.append(headerBoard, sort, addCardBtn, wrapperCard);
 
   return board;
 }
