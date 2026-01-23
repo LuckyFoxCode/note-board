@@ -22,6 +22,7 @@ export function renderBoard(): HTMLElement {
   headerBoard.append(titleBoard);
 
   const addCardBtn = renderButton({
+    action: 'add-card',
     title: 'Add card',
     className: 'nb-board__add-card',
   });

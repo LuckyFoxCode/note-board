@@ -1,21 +1,36 @@
 import { state, toggleArchivedNotes, togglePinnedNotes } from '@/store';
-import { rerender } from '@/ui';
+import { renderCardForm, renderOverlayWithForm, rerender } from '@/ui';
+import { bindCardFormEvents } from './cardFormEvents';
 
 export function bindBoardEvents(root: HTMLElement) {
   root.addEventListener('click', (event: MouseEvent) => {
     const target = event.target as HTMLElement;
 
-    const archiveIcon = target.closest(
-      '.icon-archived',
-    ) as SVGSVGElement | null;
-    if (!archiveIcon) return;
+    const actionEl = target.closest<HTMLElement>('[data-action]');
 
-    const id = archiveIcon.dataset.noteId;
-    if (!id) return;
+    if (!actionEl) return;
 
-    state.app = toggleArchivedNotes(state.app, id);
-    rerender.notes();
+    switch (actionEl.dataset.action) {
+      case 'add-card': {
+        const { form, inputTitle } = renderCardForm();
+        const overlay = renderOverlayWithForm(form, 'Add card');
+
+        bindCardFormEvents(form, overlay);
+        document.body.append(overlay);
+        inputTitle.focus();
+        break;
+      }
+      case 'archive-card': {
+        const id = actionEl.dataset.noteId;
+
+        if (!id) return;
+
+        state.app = toggleArchivedNotes(state.app, id);
+        rerender.notes();
+      }
+    }
   });
+
   root.addEventListener('dblclick', (event: MouseEvent) => {
     const target = event.target as HTMLElement;
 

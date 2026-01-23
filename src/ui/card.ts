@@ -40,6 +40,7 @@ export function createdCard(note: Note, categoryColor: string) {
   const pinnedIcon = createSvgIcon(icons.pinnedIcon, 'icon-pinned');
   const archivedIcon = createSvgIcon(icons.archiveIcon, 'icon-archived');
   archivedIcon.dataset.noteId = id;
+  archivedIcon.dataset.action = 'archive-card';
   archived ? (archivedIcon.style.color = '#f291b0') : '';
 
   const body = document.createElement('div');

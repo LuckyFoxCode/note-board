@@ -15,8 +15,6 @@ export function rerenderNotes() {
       '.nb-board__add-card',
     );
 
-    console.log(addCardBtn?.formTarget);
-
     if (!addCardBtn) return;
 
     addCardBtn.style.display = filters.categoryId === null ? 'none' : '';
