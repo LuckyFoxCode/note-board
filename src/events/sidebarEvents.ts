@@ -1,12 +1,12 @@
+import { removeCategory, state } from '@/store';
 import {
   renderCategoryForm,
   renderOverlayWithForm,
   renderSearchOverlay,
   rerender,
 } from '@/ui';
-import { bindCategoryFormEvents } from './categoryFormEvents';
-import { removeCategory, state } from '@/store';
 import { setActive } from '@/utils';
+import { bindCategoryFormEvents } from './categoryFormEvents';
 import { bindSearchNotesEvents } from './searchNotesEvents';
 
 export function bindSidebarEvents(root: HTMLElement) {
@@ -47,7 +47,7 @@ export function bindSidebarEvents(root: HTMLElement) {
       }
       case 'add-category': {
         const { form, input } = renderCategoryForm();
-        const overlay = renderOverlayWithForm(form);
+        const overlay = renderOverlayWithForm(form, 'Add category');
 
         bindCategoryFormEvents(form, overlay);
         document.body.append(overlay);

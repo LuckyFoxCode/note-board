@@ -17,6 +17,19 @@ export function rerenderNotes() {
 
       let result = notes;
 
+      if (filters.search) {
+        result = result.filter((note) => {
+          const inTitle = note.title
+            .toLowerCase()
+            .includes(filters.search.toLowerCase());
+          const inTags = note.tags.some((tag) =>
+            tag.name.toLowerCase().includes(filters.search.toLowerCase()),
+          );
+
+          return inTitle || inTags;
+        });
+      }
+
       if (state.ui.boardView === 'default') {
         result = result.filter((note) => !note.archived);
 
@@ -28,19 +41,6 @@ export function rerenderNotes() {
           result = result.filter(
             (note) => note.categoryId === filters.categoryId,
           );
-        }
-
-        if (filters.search) {
-          result = result.filter((note) => {
-            const inTitle = note.title
-              .toLowerCase()
-              .includes(filters.search.toLowerCase());
-            const inTags = note.tags.some((tag) =>
-              tag.name.toLowerCase().includes(filters.search.toLowerCase()),
-            );
-
-            return inTitle || inTags;
-          });
         }
       }
 
