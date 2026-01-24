@@ -1,5 +1,6 @@
 import { addNote, state } from '@/store';
 import { rerender } from '@/ui';
+import { getRandomColor } from '@/utils';
 
 export function bindCardFormEvents(
   form: HTMLFormElement,
@@ -27,7 +28,7 @@ export function bindCardFormEvents(
       .split(',')
       .map((tag) => ({
         name: tag,
-        color: '#ff6b6b',
+        color: getRandomColor(),
       }));
 
     const categoryId: string | null = state.app.filters.categoryId as string;
