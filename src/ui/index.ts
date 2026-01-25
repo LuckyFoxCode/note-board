@@ -14,3 +14,4 @@ export * from './rerenderNotes';
 export * from './searchOverlay';
 export * from './sidebar';
 export * from './sort';
+export * from './stats';

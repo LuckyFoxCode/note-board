@@ -18,6 +18,35 @@
   font-size: 0.675rem;
 }
 
+.nb-board__stats {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-bg);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+}
+
+.nb-board__stats-list {
+  font-family: var(--font-secondary);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.nb-board__stats-itemTitle {
+  font-size: 1rem;
+  opacity: 0.5;
+}
+
+.nb-board__stats-itemCount {
+  font-family: var(--font-secondary);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--info);
+}
+
 .nb-board__add-card {
   width: fit-content;
   border: 2px solid transparent;
