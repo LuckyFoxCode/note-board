@@ -4,6 +4,8 @@ import { renderInput } from './input';
 export function renderCardForm(): {
   form: HTMLFormElement;
   inputTitle: HTMLInputElement;
+  inputDescription: HTMLInputElement;
+  inputTags: HTMLInputElement;
 } {
   const form = document.createElement('form');
   form.classList.add('nb-form');
@@ -36,5 +38,5 @@ export function renderCardForm(): {
 
   form.append(inputTitle, inputDescription, inputTags, submitBtn);
 
-  return { form, inputTitle };
+  return { form, inputTitle, inputDescription, inputTags };
 }

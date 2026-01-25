@@ -47,6 +47,10 @@
   color: var(--rose);
 }
 
+.icon-edit {
+  color: var(--yellow);
+}
+
 .icon-archived {
   color: var(--info);
 }

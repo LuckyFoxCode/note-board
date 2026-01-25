@@ -21,13 +21,6 @@ export function renderBoard(): HTMLElement {
 
   headerBoard.append(titleBoard);
 
-  const addCardBtn = renderButton({
-    action: 'add-card',
-    title: 'Add card',
-    className: 'nb-board__add-card',
-  });
-  addCardBtn.style.display = 'none';
-
   const wrapperCard = document.createElement('div');
   wrapperCard.classList.add('nb-board__wrapper-cards');
 
@@ -49,6 +42,12 @@ export function renderBoard(): HTMLElement {
       (cat) => cat.id === note.categoryId,
     );
     wrapperCard.append(createdCard(note, category?.color ?? '#ccc'));
+  });
+
+  const addCardBtn = renderButton({
+    action: 'add-card',
+    title: 'Add card',
+    className: 'nb-board__add-card',
   });
 
   board.append(headerBoard, sort, addCardBtn, wrapperCard);

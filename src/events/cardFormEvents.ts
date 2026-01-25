@@ -1,4 +1,4 @@
-import { addNote, state } from '@/store';
+import { addNote, state, updateNote } from '@/store';
 import { rerender } from '@/ui';
 import { getRandomColor } from '@/utils';
 
@@ -12,16 +12,14 @@ export function bindCardFormEvents(
     const inputTitle = form.querySelector<HTMLInputElement>(
       '[name="card-title"]',
     );
-    if (!inputTitle) return;
 
     const inputDescription = form.querySelector<HTMLInputElement>(
       '[name="card-description"]',
     );
-    if (!inputDescription) return;
 
     const inputTags =
       form.querySelector<HTMLInputElement>('[name="card-tags"]');
-    if (!inputTags) return;
+    if (!inputTitle || !inputDescription || !inputTags) return;
 
     const tags = inputTags.value
       .trim()
@@ -33,14 +31,26 @@ export function bindCardFormEvents(
 
     const categoryId: string | null = state.app.filters.categoryId as string;
 
-    const newCard = {
-      title: inputTitle.value.trim(),
-      excerpt: inputDescription.value.trim(),
-      tags,
-      categoryId: categoryId,
-    };
+    if (form.dataset.noteId) {
+      const updateCard = {
+        id: form.dataset.noteId,
+        title: inputTitle.value.trim(),
+        excerpt: inputDescription.value.trim(),
+        tags,
+      };
 
-    state.app = addNote(state.app, newCard);
+      state.app = updateNote(state.app, updateCard);
+    } else {
+      const newCard = {
+        title: inputTitle.value.trim(),
+        excerpt: inputDescription.value.trim(),
+        tags,
+        categoryId: categoryId,
+      };
+
+      state.app = addNote(state.app, newCard);
+    }
+
     rerender.notes();
     overlay.remove();
   });

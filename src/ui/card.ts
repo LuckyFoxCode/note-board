@@ -1,4 +1,5 @@
 import { icons } from '@/assets/icons';
+import { state } from '@/store';
 import type { Note } from '@/types';
 import { createSvgIcon } from '@/utils';
 
@@ -37,11 +38,12 @@ export function createdCard(note: Note, categoryColor: string) {
   date.classList.add('nb-note-card__head-date');
   date.textContent = formattedDate;
 
-  const pinnedIcon = createSvgIcon(icons.pinnedIcon, 'icon-pinned');
   const archivedIcon = createSvgIcon(icons.archiveIcon, 'icon-archived');
   archivedIcon.dataset.noteId = id;
   archivedIcon.dataset.action = 'archive-card';
   archived ? (archivedIcon.style.color = '#f291b0') : '';
+
+  const pinnedIcon = createSvgIcon(icons.pinnedIcon, 'icon-pinned');
 
   const body = document.createElement('div');
   body.classList.add('nb-note-card__body');
@@ -68,7 +70,16 @@ export function createdCard(note: Note, categoryColor: string) {
   });
   footer.append(tagList);
 
-  header.append(point, date, archivedIcon);
+  header.append(point, date);
+
+  if (state.app.filters.categoryId) {
+    const editIcon = createSvgIcon(icons.editIcon, 'icon-edit');
+    editIcon.dataset.noteId = note.id;
+    editIcon.dataset.action = 'edit-card';
+    header.append(editIcon);
+  }
+
+  header.append(archivedIcon);
   pinned && header.append(pinnedIcon);
   body.append(title, description);
   card.append(header, body, footer);

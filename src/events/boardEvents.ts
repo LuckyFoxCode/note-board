@@ -20,9 +20,30 @@ export function bindBoardEvents(root: HTMLElement) {
         inputTitle.focus();
         break;
       }
+      case 'edit-card': {
+        const id = actionEl.dataset.noteId;
+        if (!id) return;
+
+        const noteToEdit = state.app.notes.find((note) => note.id === id);
+        if (!noteToEdit) return;
+
+        const { form, inputTitle, inputDescription, inputTags } =
+          renderCardForm();
+
+        inputTitle.value = noteToEdit.title;
+        inputDescription.value = noteToEdit.excerpt;
+        inputTags.value = noteToEdit.tags.map((note) => note.name).join(',');
+
+        form.dataset.noteId = id;
+
+        const overlay = renderOverlayWithForm(form, 'Edit card');
+        bindCardFormEvents(form, overlay);
+        document.body.append(overlay);
+        inputTitle.focus();
+        break;
+      }
       case 'archive-card': {
         const id = actionEl.dataset.noteId;
-
         if (!id) return;
 
         state.app = toggleArchivedNotes(state.app, id);

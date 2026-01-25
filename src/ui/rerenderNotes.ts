@@ -15,9 +15,11 @@ export function rerenderNotes() {
       '.nb-board__add-card',
     );
 
-    if (!addCardBtn) return;
-
-    addCardBtn.style.display = filters.categoryId === null ? 'none' : '';
+    if (addCardBtn) {
+      const canAddCard =
+        Boolean(filters.categoryId) && state.ui.boardView === 'default';
+      addCardBtn.style.display = canAddCard ? '' : 'none';
+    }
 
     withElement(notesCard, (notesEl) => {
       notesEl.innerHTML = '';
@@ -63,6 +65,11 @@ export function rerenderNotes() {
         );
         const item = createdCard(note, category?.color ?? '#ccc');
         notesEl.appendChild(item);
+      });
+      notesEl.querySelectorAll<HTMLElement>('.icon-edit').forEach((icon) => {
+        const canShowEdit =
+          Boolean(filters.categoryId) && state.ui.boardView === 'default';
+        icon.style.display = canShowEdit ? '' : 'none';
       });
     });
   });
