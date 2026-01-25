@@ -49,6 +49,7 @@ export function renderBoard(): HTMLElement {
     title: 'Add card',
     className: 'nb-board__add-card',
   });
+  addCardBtn.style.display = 'none';
 
   board.append(headerBoard, sort, addCardBtn, wrapperCard);
 

@@ -18,6 +18,20 @@
   font-size: 0.675rem;
 }
 
+.nb-board__add-card {
+  width: fit-content;
+  border: 2px solid transparent;
+  background-color: var(--card-bg);
+  padding: 0.5rem 1rem;
+}
+
+.nb-board__add-card:focus {
+  border-color: var(--accent);
+}
+
+.nb-board__add-card:hover {
+  background-color: var(--border);
+}
 .nb-board__wrapper-cards {
   display: grid;
   grid-template-columns: 1fr;
