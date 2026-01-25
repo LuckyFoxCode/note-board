@@ -9,16 +9,18 @@ export interface RootState {
 export const state: RootState = {
   app: {
     notes: [...cards],
-    categories: [{ id: '1', color: '#fff', title: '1' }],
+    categories: [{ id: '1', color: '#fcf', title: 'hobby' }],
     filters: {
       categoryId: null,
       search: '',
+      sortBy: 'default',
       archived: false,
-      sortBy: 'date',
+      pinnedOnly: false,
     },
   },
   ui: {
     theme: 'light',
     isOpenSidebar: true,
+    boardView: 'default',
   },
 };

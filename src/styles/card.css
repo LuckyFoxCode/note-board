@@ -38,7 +38,21 @@
   font-family: var(--font-secondary);
   font-size: 13px;
   display: flex;
+  flex: 1;
   opacity: 0.7;
+}
+
+.icon-pinned,
+.icon-archived {
+  color: var(--rose);
+}
+
+.icon-edit {
+  color: var(--yellow);
+}
+
+.icon-archived {
+  color: var(--info);
 }
 
 .nb-note-card__body {

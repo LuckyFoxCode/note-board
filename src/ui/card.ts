@@ -1,7 +1,18 @@
+import { icons } from '@/assets/icons';
+import { state } from '@/store';
 import type { Note } from '@/types';
+import { createSvgIcon } from '@/utils';
 
-export function createdCard(note: Note) {
-  const { id, createdAt, title: titleNote, excerpt, tags } = note;
+export function createdCard(note: Note, categoryColor: string) {
+  const {
+    id,
+    createdAt,
+    title: titleNote,
+    excerpt,
+    tags,
+    pinned,
+    archived,
+  } = note;
 
   const formattedDate = new Date(createdAt).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -19,13 +30,20 @@ export function createdCard(note: Note) {
   const header = document.createElement('header');
   header.classList.add('nb-note-card__head');
 
+  const point = document.createElement('div');
+  point.classList.add('nb-note-card__head-pointer');
+  point.style.backgroundColor = categoryColor;
+
   const date = document.createElement('span');
   date.classList.add('nb-note-card__head-date');
   date.textContent = formattedDate;
 
-  const point = document.createElement('div');
-  point.classList.add('nb-note-card__head-pointer');
-  point.style.backgroundColor = '#8e54e9';
+  const archivedIcon = createSvgIcon(icons.archiveIcon, 'icon-archived');
+  archivedIcon.dataset.noteId = id;
+  archivedIcon.dataset.action = 'archive-card';
+  archived ? (archivedIcon.style.color = '#f291b0') : '';
+
+  const pinnedIcon = createSvgIcon(icons.pinnedIcon, 'icon-pinned');
 
   const body = document.createElement('div');
   body.classList.add('nb-note-card__body');
@@ -53,6 +71,16 @@ export function createdCard(note: Note) {
   footer.append(tagList);
 
   header.append(point, date);
+
+  if (state.app.filters.categoryId) {
+    const editIcon = createSvgIcon(icons.editIcon, 'icon-edit');
+    editIcon.dataset.noteId = note.id;
+    editIcon.dataset.action = 'edit-card';
+    header.append(editIcon);
+  }
+
+  header.append(archivedIcon);
+  pinned && header.append(pinnedIcon);
   body.append(title, description);
   card.append(header, body, footer);
 

@@ -1,4 +1,3 @@
-import { COLORS_CATEGORIES } from '@/consts';
 import type {
   AppState,
   Category,
@@ -7,6 +6,7 @@ import type {
   Note,
   UpdateNotePayload,
 } from '@/types';
+import { getRandomColor } from '@/utils';
 
 export function addCategory(
   state: AppState,
@@ -14,14 +14,10 @@ export function addCategory(
 ): AppState {
   if (payload.title.trim() === '') return state;
 
-  const colorsLength = Object.values(COLORS_CATEGORIES).length;
-  const randomColor =
-    Object.values(COLORS_CATEGORIES)[Math.floor(Math.random() * colorsLength)];
-
   const newCategory: Category = {
     id: crypto.randomUUID(),
     title: payload.title,
-    color: randomColor,
+    color: getRandomColor(),
   };
 
   return {
@@ -65,6 +61,33 @@ export function addNote(state: AppState, payload: CreateNotePayload): AppState {
   return {
     ...state,
     notes: [...state.notes, newNote],
+  };
+}
+
+export function toggleArchivedNotes(
+  state: AppState,
+  payload: string,
+): AppState {
+  const updatedAt = new Date().toISOString();
+
+  return {
+    ...state,
+    notes: state.notes.map((note) =>
+      note.id === payload
+        ? { ...note, archived: !note.archived, updatedAt }
+        : note,
+    ),
+  };
+}
+
+export function togglePinnedNotes(state: AppState, payload: string): AppState {
+  const updatedAt = new Date().toISOString();
+
+  return {
+    ...state,
+    notes: state.notes.map((note) =>
+      note.id === payload ? { ...note, pinned: !note.pinned, updatedAt } : note,
+    ),
   };
 }
 

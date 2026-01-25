@@ -36,4 +36,10 @@ export function bindCategoryFormEvents(
     input.value = '';
     overlay.remove();
   });
+
+  form.addEventListener('keyup', (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      overlay.remove();
+    }
+  });
 }

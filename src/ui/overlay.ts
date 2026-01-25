@@ -1,15 +1,18 @@
-export function renderOverlayWithForm(form: HTMLFormElement): HTMLDivElement {
+export function renderOverlayWithForm(
+  form: HTMLFormElement,
+  title: string,
+): HTMLDivElement {
   const overlay = document.createElement('div');
   overlay.classList.add('nb-overlay');
 
   const overlayWrapper = document.createElement('div');
   overlayWrapper.classList.add('nb-overlay__wrapper');
 
-  const title = document.createElement('h2');
-  title.classList.add('nb-overlay__wrapper-title');
-  title.textContent = 'Add category / note';
+  const overlayTitle = document.createElement('h2');
+  overlayTitle.classList.add('nb-overlay__wrapper-title');
+  overlayTitle.textContent = title;
 
-  overlayWrapper.append(title, form);
+  overlayWrapper.append(overlayTitle, form);
   overlay.append(overlayWrapper);
 
   return overlay;

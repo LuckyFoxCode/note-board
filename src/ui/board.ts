@@ -1,8 +1,12 @@
+import { getStatsNotes, state } from '@/store';
+import { renderButton } from './button';
 import { createdCard } from './card';
-import { state } from '@/store';
+import { renderSorting } from './sort';
+import { renderStats } from './stats';
 
 export function renderBoard(): HTMLElement {
   const { notes, filters } = state.app;
+
   const board = document.createElement('main');
   board.classList.add('nb-board');
   board.dataset.role = 'main';
@@ -16,16 +20,41 @@ export function renderBoard(): HTMLElement {
   titleBoard.textContent = 'Welcome to NoteBoard!';
 
   headerBoard.append(titleBoard);
-  board.prepend(headerBoard);
+
+  const sort = renderSorting();
+  let statsBlock = renderStats(getStatsNotes(state.app));
 
   const wrapperCard = document.createElement('div');
   wrapperCard.classList.add('nb-board__wrapper-cards');
 
-  (filters.categoryId !== null
-    ? notes.filter((note) => note.categoryId === filters.categoryId)
-    : notes
-  ).forEach((note) => wrapperCard.append(createdCard(note)));
-  board.append(wrapperCard);
+  let filteredNotes = notes;
+
+  if (state.ui.boardView === 'default')
+    filteredNotes = filteredNotes.filter((note) => !note.archived);
+
+  if (state.ui.boardView === 'archive')
+    filteredNotes = filteredNotes.filter((note) => note.archived);
+
+  if (filters.categoryId)
+    filteredNotes = filteredNotes.filter(
+      (n) => n.categoryId === filters.categoryId,
+    );
+
+  filteredNotes.forEach((note) => {
+    const category = state.app.categories.find(
+      (cat) => cat.id === note.categoryId,
+    );
+    wrapperCard.append(createdCard(note, category?.color ?? '#ccc'));
+  });
+
+  const addCardBtn = renderButton({
+    action: 'add-card',
+    title: 'Add card',
+    className: 'nb-board__add-card',
+  });
+  addCardBtn.style.display = 'none';
+
+  board.append(headerBoard, sort, statsBlock, addCardBtn, wrapperCard);
 
   return board;
 }
