@@ -1,6 +1,7 @@
 import { state } from '@/store';
 import { sortNotes, withElement } from '@/utils';
 import { createdCard } from './card';
+import { rerender } from './rerender';
 
 export function rerenderNotes() {
   const board = document.querySelector<HTMLElement>('[data-mount="board"]');
@@ -71,6 +72,7 @@ export function rerenderNotes() {
           Boolean(filters.categoryId) && state.ui.boardView === 'default';
         icon.style.display = canShowEdit ? '' : 'none';
       });
+      rerender.stats();
     });
   });
 }

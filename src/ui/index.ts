@@ -11,6 +11,7 @@ export * from './overlay';
 export * from './rerender';
 export * from './rerenderCategories';
 export * from './rerenderNotes';
+export * from './rerenderStats';
 export * from './searchOverlay';
 export * from './sidebar';
 export * from './sort';
