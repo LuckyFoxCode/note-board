@@ -6,7 +6,7 @@ import type {
   Note,
   UpdateNotePayload,
 } from '@/types';
-import { getRandomColor } from '@/utils';
+import { getDate, getRandomColor } from '@/utils';
 
 export function addCategory(
   state: AppState,
@@ -44,7 +44,7 @@ export function addNote(state: AppState, payload: CreateNotePayload): AppState {
   if (title.trim() === '' || excerpt.trim() === '' || !categoryIsValid) {
     return state;
   }
-  const now = new Date().toISOString();
+  const now = getDate();
 
   const newNote: Note = {
     id: crypto.randomUUID(),
@@ -68,7 +68,7 @@ export function toggleArchivedNotes(
   state: AppState,
   payload: string,
 ): AppState {
-  const updatedAt = new Date().toISOString();
+  const updatedAt = getDate();
 
   return {
     ...state,
@@ -81,7 +81,7 @@ export function toggleArchivedNotes(
 }
 
 export function togglePinnedNotes(state: AppState, payload: string): AppState {
-  const updatedAt = new Date().toISOString();
+  const updatedAt = getDate();
 
   return {
     ...state,
@@ -101,7 +101,7 @@ export function updateNote(
     return state;
   }
 
-  const updatedAt = new Date().toISOString();
+  const updatedAt = getDate();
 
   return {
     ...state,
