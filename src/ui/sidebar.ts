@@ -1,7 +1,7 @@
-import { createSvgIcon } from '@/utils';
-import { createCategory } from './category';
 import { icons } from '@/assets/icons';
+import { createSvgIcon } from '@/utils';
 import { renderButton } from './button';
+import { createCategory } from './category';
 
 export function renderSidebar(): {
   sidebar: HTMLElement;
@@ -10,7 +10,7 @@ export function renderSidebar(): {
   const homeIcon = createSvgIcon(icons.homeIcon, 'icon-home');
   const searchIcon = createSvgIcon(icons.sunIcon, 'icon-search');
   const archiveIcon = createSvgIcon(icons.archiveIcon, 'icon-archive');
-  const sunIcon = createSvgIcon(icons.sunIcon, 'icon-sun');
+  const sunIcon = createSvgIcon(icons.sunIcon, 'icon-theme');
 
   const sidebar = document.createElement('aside');
   sidebar.classList.add('nb-sidebar');

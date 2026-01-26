@@ -6,7 +6,7 @@ export function bindToggleTheme(btn: HTMLButtonElement) {
     const isDark = document.body.classList.toggle('dark');
 
     btn.replaceChildren(
-      createSvgIcon(isDark ? icons.moonIcon : icons.sunIcon, 'icon-sun'),
+      createSvgIcon(isDark ? icons.moonIcon : icons.sunIcon, 'icon-theme'),
     );
   });
 }
