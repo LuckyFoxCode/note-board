@@ -1,3 +1,5 @@
+import { STORAGE_KEY, UI_KEY } from '@/consts';
+import { saveLocalStorage } from '@/persistence';
 import { removeCategory, state } from '@/store';
 import {
   renderCategoryForm,
@@ -27,6 +29,7 @@ export function bindSidebarEvents(root: HTMLElement) {
           archived: false,
         };
         state.ui.boardView = 'default';
+        saveLocalStorage(UI_KEY, state.ui);
         rerender.notes();
         break;
       }
@@ -43,6 +46,7 @@ export function bindSidebarEvents(root: HTMLElement) {
         setActive(root, actionEl);
         state.app.filters = { ...state.app.filters, archived: true };
         state.ui.boardView = 'archive';
+        saveLocalStorage(UI_KEY, state.ui);
         rerender.notes();
         break;
       }
@@ -60,6 +64,7 @@ export function bindSidebarEvents(root: HTMLElement) {
         if (!id) return;
 
         state.app = removeCategory(state.app, id);
+        saveLocalStorage(STORAGE_KEY, state.app);
         rerender.categories();
         rerender.notes();
         break;

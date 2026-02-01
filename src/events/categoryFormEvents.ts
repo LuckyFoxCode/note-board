@@ -1,3 +1,5 @@
+import { STORAGE_KEY } from '@/consts';
+import { saveLocalStorage } from '@/persistence';
 import { addCategory, state } from '@/store';
 import { rerender } from '@/ui';
 
@@ -31,6 +33,7 @@ export function bindCategoryFormEvents(
     };
 
     state.app = addCategory(state.app, newCategory);
+    saveLocalStorage(STORAGE_KEY, state.app);
     rerender.categories();
 
     input.value = '';

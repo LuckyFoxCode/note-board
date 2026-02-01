@@ -15,6 +15,14 @@ export function initApp() {
   state.app = dataState;
   state.ui = dataUI;
 
+  if (state.ui.theme === 'dark') {
+    document.body.classList.add('dark');
+  }
+
+  if (state.ui.theme === 'light') {
+    document.body.classList.remove('dark');
+  }
+
   const { sidebar, board, themeBtn } = renderLayout();
 
   initSidebar(sidebar);
