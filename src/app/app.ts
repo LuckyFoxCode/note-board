@@ -1,5 +1,5 @@
 import { bindBoardEvents, bindSidebarEvents, bindToggleTheme } from '@/events';
-import { renderLayout } from '@/ui';
+import { initSidebar, renderLayout } from '@/ui';
 
 export function initApp() {
   const root = document.querySelector('#app') as HTMLElement;
@@ -10,6 +10,8 @@ export function initApp() {
   bindToggleTheme(themeBtn);
   bindSidebarEvents(sidebar);
   bindBoardEvents(board);
+
+  window.addEventListener('resize', () => initSidebar(sidebar));
 
   root.append(sidebar, board);
 }

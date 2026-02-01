@@ -14,5 +14,6 @@ export * from './rerenderNotes';
 export * from './rerenderStats';
 export * from './searchOverlay';
 export * from './sidebar';
+export * from './sidebar.controller';
 export * from './sort';
 export * from './stats';

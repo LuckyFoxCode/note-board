@@ -4,6 +4,7 @@ import {
   renderOverlayWithForm,
   renderSearchOverlay,
   rerender,
+  toggleSidebar,
 } from '@/ui';
 import { setActive } from '@/utils';
 import { bindCategoryFormEvents } from './categoryFormEvents';
@@ -78,6 +79,10 @@ export function bindSidebarEvents(root: HTMLElement) {
         };
         state.ui.boardView = 'default';
         rerender.notes();
+        break;
+      }
+      case 'toggle-sidebar': {
+        toggleSidebar(root);
         break;
       }
     }

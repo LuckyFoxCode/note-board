@@ -11,9 +11,10 @@ export function renderSidebar(): {
   const searchIcon = createSvgIcon(icons.sunIcon, 'icon-search');
   const archiveIcon = createSvgIcon(icons.archiveIcon, 'icon-archive');
   const sunIcon = createSvgIcon(icons.sunIcon, 'icon-theme');
+  const burgerIcon = createSvgIcon(icons.burgerIcon, 'icon-burger');
 
   const sidebar = document.createElement('aside');
-  sidebar.classList.add('nb-sidebar');
+  sidebar.classList.add('nb-sidebar', 'is-open');
   sidebar.dataset.role = 'navigation';
   sidebar.dataset.mount = 'sidebar';
   sidebar.ariaLabel = 'Navigation';
@@ -50,8 +51,14 @@ export function renderSidebar(): {
     icon: sunIcon,
   });
 
+  const btnBurger = renderButton({
+    action: 'toggle-sidebar',
+    className: 'nb-toggle-btn',
+    icon: burgerIcon,
+  });
+
   wrapper.append(btnHome, btnSearch, btnArchived);
-  sidebar.append(wrapper, categories, btnTheme);
+  sidebar.append(wrapper, categories, btnBurger, btnTheme);
 
   return { sidebar, btnTheme };
 }
