@@ -64,7 +64,7 @@ Focus: UX-driven state updates.
 
 ## Phase G — Persistence Layer
 
-- [ ] Step 26 — StorageProvider interface
+- [x] Step 26 — StorageProvider interface
 - [ ] Step 27 — localStorage implementation
 - [ ] Step 28 — Graceful fallback (in-memory)
 - [ ] Step 29 — Persist filters & UI state
