@@ -7,6 +7,7 @@ import homeSvg from './home.svg?raw';
 import moonSvg from './moon.svg?raw';
 import pinnedSvg from './pinned.svg?raw';
 import removeSvg from './remove.svg?raw';
+import searchSvg from './search.svg?raw';
 import sunSvg from './sun.svg?raw';
 
 export const icons = {
@@ -19,5 +20,6 @@ export const icons = {
   moonIcon: moonSvg,
   pinnedIcon: pinnedSvg,
   removeIcon: removeSvg,
+  searchIcon: searchSvg,
   sunIcon: sunSvg,
 };

@@ -1,3 +1,5 @@
+import { STORAGE_KEY } from '@/consts';
+import { saveLocalStorage } from '@/persistence';
 import { addNote, state, updateNote } from '@/store';
 import { rerender } from '@/ui';
 import { getRandomColor } from '@/utils';
@@ -51,6 +53,7 @@ export function bindCardFormEvents(
       state.app = addNote(state.app, newCard);
     }
 
+    saveLocalStorage(STORAGE_KEY, state.app);
     rerender.notes();
     overlay.remove();
   });

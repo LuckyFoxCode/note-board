@@ -1,9 +1,19 @@
+import { STORAGE_KEY, UI_KEY } from '@/consts';
 import { bindBoardEvents, bindSidebarEvents, bindToggleTheme } from '@/events';
+import { getLocalStorage } from '@/persistence';
+import { state } from '@/store';
+import type { AppState, UI } from '@/types';
 import { initSidebar, renderLayout } from '@/ui';
 
 export function initApp() {
   const root = document.querySelector('#app') as HTMLElement;
   if (!root) throw new Error('Root element not found');
+
+  const dataState = getLocalStorage<AppState>(STORAGE_KEY) as AppState;
+  const dataUI = getLocalStorage<UI>(UI_KEY) as UI;
+
+  state.app = dataState;
+  state.ui = dataUI;
 
   const { sidebar, board, themeBtn } = renderLayout();
 
