@@ -7,6 +7,8 @@ export function initApp() {
 
   const { sidebar, board, themeBtn } = renderLayout();
 
+  initSidebar(sidebar);
+
   bindToggleTheme(themeBtn);
   bindSidebarEvents(sidebar);
   bindBoardEvents(board);

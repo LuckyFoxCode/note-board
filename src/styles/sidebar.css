@@ -84,9 +84,3 @@
     padding: 1rem 0.5rem;
   }
 }
-
-@media (min-width: 1024px) {
-  .nb-sidebar {
-    width: 250px;
-  }
-}
