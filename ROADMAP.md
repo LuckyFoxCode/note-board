@@ -72,34 +72,15 @@ Focus: UX-driven state updates.
 Key concept:
 Абстракция → легко заменить API позже.
 
-## Phase H — Drag & Drop
+## Phase J — Finalization & Optional
 
-- [ ] Step 30 — Drag note card
-- [ ] Step 31 — Drop into category
-- [ ] Step 32 — Persist category change
-- [ ] Step 33 — (Optional) reorder inside category
-
-Important:
-DnD = сложное состояние + UX.
-
-## Phase I — Advanced Features (Optional)
-
-- [ ] Step 34 — Undo / Redo (command stack)
-- [ ] Step 35 — Export notes to JSON
-- [ ] Step 36 — Import JSON
-- [ ] Step 37 — Keyboard shortcuts
-
-## Phase J — Finalization & Vue Bridge
-
-- [ ] Step 38 — README (architecture explained)
-- [ ] Step 39 — GitHub Pages / Preview deploy
-- [ ] Step 40 — Vue mapping doc
-      (state → reactive, controllers → composables)
+- [ ] Step 30 — README (architecture explained)
+- [x] Step 31 — GitHub Pages / Preview deploy
+- [x] Step 32 - Color themes
+- [x] Step 33 - accessibility (ARIA roles)
 
 ### Optional Stretch Ideas
 
-- Color themes
-- Accessibility (ARIA roles)
 - Markdown preview in notes
 - Virtualized list (performance)
 - IndexedDB provider
