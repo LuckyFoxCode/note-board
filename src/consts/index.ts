@@ -1,5 +1,8 @@
 import type { Note, Tag } from '@/types';
 
+export const STORAGE_KEY = 'note-board-state';
+export const UI_KEY = 'note-board-ui';
+
 export const cards: Note[] = [
   {
     id: 'n-001',

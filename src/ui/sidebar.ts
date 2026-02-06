@@ -1,19 +1,20 @@
-import { createSvgIcon } from '@/utils';
-import { createCategory } from './category';
 import { icons } from '@/assets/icons';
+import { createSvgIcon } from '@/utils';
 import { renderButton } from './button';
+import { createCategory } from './category';
 
 export function renderSidebar(): {
   sidebar: HTMLElement;
   btnTheme: HTMLButtonElement;
 } {
   const homeIcon = createSvgIcon(icons.homeIcon, 'icon-home');
-  const searchIcon = createSvgIcon(icons.sunIcon, 'icon-search');
+  const searchIcon = createSvgIcon(icons.searchIcon, 'icon-search');
   const archiveIcon = createSvgIcon(icons.archiveIcon, 'icon-archive');
-  const sunIcon = createSvgIcon(icons.sunIcon, 'icon-sun');
+  const sunIcon = createSvgIcon(icons.sunIcon, 'icon-theme');
+  const burgerIcon = createSvgIcon(icons.burgerIcon, 'icon-burger');
 
   const sidebar = document.createElement('aside');
-  sidebar.classList.add('nb-sidebar');
+  sidebar.classList.add('nb-sidebar', 'is-open');
   sidebar.dataset.role = 'navigation';
   sidebar.dataset.mount = 'sidebar';
   sidebar.ariaLabel = 'Navigation';
@@ -50,8 +51,14 @@ export function renderSidebar(): {
     icon: sunIcon,
   });
 
+  const btnBurger = renderButton({
+    action: 'toggle-sidebar',
+    className: 'nb-toggle-btn',
+    icon: burgerIcon,
+  });
+
   wrapper.append(btnHome, btnSearch, btnArchived);
-  sidebar.append(wrapper, categories, btnTheme);
+  sidebar.append(wrapper, categories, btnBurger, btnTheme);
 
   return { sidebar, btnTheme };
 }

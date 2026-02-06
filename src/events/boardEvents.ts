@@ -1,3 +1,5 @@
+import { STORAGE_KEY } from '@/consts';
+import { saveLocalStorage } from '@/persistence';
 import { state, toggleArchivedNotes, togglePinnedNotes } from '@/store';
 import { renderCardForm, renderOverlayWithForm, rerender } from '@/ui';
 import { bindCardFormEvents } from './cardFormEvents';
@@ -47,6 +49,7 @@ export function bindBoardEvents(root: HTMLElement) {
         if (!id) return;
 
         state.app = toggleArchivedNotes(state.app, id);
+        saveLocalStorage(STORAGE_KEY, state.app);
         rerender.notes();
       }
     }
@@ -62,6 +65,7 @@ export function bindBoardEvents(root: HTMLElement) {
     if (!id) return;
 
     state.app = togglePinnedNotes(state.app, id);
+    saveLocalStorage(STORAGE_KEY, state.app);
     rerender.notes();
   });
 
