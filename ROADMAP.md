@@ -66,8 +66,8 @@ Focus: UX-driven state updates.
 
 - [x] Step 26 — StorageProvider interface
 - [x] Step 27 — localStorage implementation
-- [ ] Step 28 — Graceful fallback (in-memory)
-- [ ] Step 29 — Persist filters & UI state
+- [x] Step 28 — Graceful fallback (in-memory)
+- [x] Step 29 — Persist filters & UI state
 
 Key concept:
 Абстракция → легко заменить API позже.
