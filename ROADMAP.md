@@ -72,9 +72,9 @@ Focus: UX-driven state updates.
 Key concept:
 Абстракция → легко заменить API позже.
 
-## Phase J — Finalization & Optional
+## Phase H — Finalization & Optional
 
-- [ ] Step 30 — README (architecture explained)
+- [x] Step 30 — README (architecture explained)
 - [x] Step 31 — GitHub Pages / Preview deploy
 - [x] Step 32 - Color themes
 - [x] Step 33 - accessibility (ARIA roles)
