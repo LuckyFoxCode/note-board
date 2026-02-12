@@ -36,13 +36,13 @@
 }
 
 .nb-board__stats-itemTitle {
-  font-size: 1rem;
+  font-size: 0.875rem;
   opacity: 0.5;
 }
 
 .nb-board__stats-itemCount {
   font-family: var(--font-secondary);
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--info);
 }
@@ -153,6 +153,14 @@
 @media (min-width: 768px) {
   .nb-board {
     padding: 1rem 0.5rem;
+  }
+
+  .nb-board__stats-itemTitle {
+    font-size: 1rem;
+  }
+
+  .nb-board__stats-itemCount {
+    font-size: 1.25rem;
   }
 
   .nb-board__wrapper-cards {
